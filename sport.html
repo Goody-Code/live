@@ -181,92 +181,16 @@
     <div class="iframe-wrapper">
         <iframe id="fram" title="شاهد قناة بي ان سبورت 1 بث مباشر - beIN Sports 1 live"
                 src="https://www.aflam4you.net/zremb472.php?vid=68&amp;aflam_s=1&amp;aflam_w=5675&amp;aflam_h=556755&amp;aflam_k=1111111333"
-                name="Player" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; encrypted-media;" sandbox="">
-	</iframe>
-        <div class="controls">
-            <button class="control-button" id="playPauseButton"><i class="fas fa-play"></i></button>
-            <button class="control-button" id="muteButton"><i class="fas fa-volume-up"></i></button>
-            <button class="control-button" id="fullScreenButton"><i class="fas fa-expand-arrows-alt"></i></button>
-        </div>
+                name="Player" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen">
+        </iframe>
     </div>
-
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script>
+        // فحص ما إذا كان الجهاز محمول أو كمبيوتر
         document.addEventListener("DOMContentLoaded", function() {
             var iframe = document.getElementById('fram');
             if (window.innerWidth <= 768) {
                 iframe.removeAttribute('sandbox');
             }
-
-            // محاولة تشغيل الفيديو مع الصوت
-            iframe.onload = function() {
-                var contentWindow = iframe.contentWindow;
-                if (contentWindow) {
-                    var video = contentWindow.document.querySelector('video');
-                    if (video) {
-                        video.muted = false;
-                        video.play().catch(function(error) {
-                            console.log("Failed to play video with sound automatically: ", error);
-                        });
-                    }
-                }
-            };
-
-            // العناصر التحكم بالمشغل
-            var playPauseButton = document.getElementById('playPauseButton');
-            var muteButton = document.getElementById('muteButton');
-            var fullScreenButton = document.getElementById('fullScreenButton');
-
-            // تحديد دالة التشغيل/الإيقاف المؤقت
-            playPauseButton.addEventListener('click', function() {
-                var contentWindow = iframe.contentWindow;
-                if (contentWindow) {
-                    var video = contentWindow.document.querySelector('video');
-                    if (video) {
-                        if (video.paused) {
-                            video.play();
-                            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
-                        } else {
-                            video.pause();
-                            playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
-                        }
-                    }
-                }
-            });
-
-            // تحديد دالة كتم/إلغاء الكتم
-            muteButton.addEventListener('click', function() {
-                var contentWindow = iframe.contentWindow;
-                if (contentWindow) {
-                    var video = contentWindow.document.querySelector('video');
-                    if (video) {
-                        if (video.muted) {
-                            video.muted = false;
-                            muteButton.innerHTML = '<i class="fas fa-volume-up"></i>';
-                        } else {
-                            video.muted = true;
-                            muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                        }
-                    }
-                }
-            });
-
-            // تحديد دالة عرض الفيديو بملاء الشاشة
-            fullScreenButton.addEventListener('click', function() {
-                var contentWindow = iframe.contentWindow;
-                if (contentWindow) {
-                    var video = contentWindow.document.querySelector('video');
-                    if (video) {
-                        if (video.requestFullscreen) {
-                            video.requestFullscreen();
-                        } else if (video.webkitRequestFullscreen) { /* Safari */
-                            video.webkitRequestFullscreen();
-                        } else if (video.msRequestFullscreen) { /* IE11 */
-                            video.msRequestFullscreen();
-                        }
-                    }
-                }
-            });
         });
     </script>
 
