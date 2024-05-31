@@ -4,7 +4,7 @@
 <title>مباشر</title>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="theme-color" content="#d91048">
+<meta name="theme-color" content="#bc1644">
 <meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
 <meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
 <meta property="og:title" content="البث المباشر - تصميم المهندس خالد الغيلي">
@@ -24,6 +24,7 @@
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0' name='viewport' />
 <link href="fonts/notofont.css" rel="stylesheet">
 <link rel="stylesheet" href="css/fontello.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
@@ -396,6 +397,27 @@ li{ display:inline-block;padding:0px;}
     <button class="button play-in-browser" onclick="openInBrowser()"><i class="fas fa-play"></i> تشغيل مباشر</button>
     <button class="button" onclick="playInPlayer()"><i class="fa-solid fa-circle-play fa-lg"></i> تشغيل</button>
 </div>
+<div class="button-container">
+        <button class="circle-button" id="homeButton">
+            <i class="fas fa-home"></i>
+        </button>
+        <button class="circle-button" id="liveButton">
+            <i class="fas fa-broadcast-tower"></i>
+        </button>
+        <button class="circle-button" id="colorButton">
+            <i class="fas fa-palette"></i>
+        </button>
+    </div>
+
+    <div id="colorPicker" class="color-picker hidden">
+        <div class="color-option" style="background-color: #bc1644;" data-color="#bc1644"></div>
+        <div class="color-option" style="background-color: #1d242e;" data-color="#1d242e"></div>
+        <div class="color-option" style="background-color: #3D358A;" data-color="#3D358A"></div>
+	<div class="color-option" style="background-color: #3D358A;" data-color="#3D358A"></div>
+	<div class="color-option" style="background-color: #3D358A;" data-color="#3D358A"></div>
+	<div class="color-option" style="background-color: #3D358A;" data-color="#3D358A"></div>
+        <!-- أضف المزيد من الألوان حسب الحاجة -->
+    </div>
 <style>
 img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:85px; width: 85px;}
 		body{background-color: #d91048;}
@@ -405,7 +427,7 @@ img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:
   margin-left:0px;
   margin-right:0px;
     margin-top: 0px;
-    background: #d91048;
+    background: #bc1644;
     text-align: center; 
     color: #aaa;
     font-family: "Cairo", sans-serif;
@@ -524,7 +546,7 @@ img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #d91048;
+    background-color: #bc1644;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -565,7 +587,60 @@ img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:
   }
 }
 
-        
+
+        .button-container {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .circle-button {
+            background-color: #1d242e;
+            border: 2px solid #fff;
+            color: #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .circle-button:active {
+            background-color: #3498db; /* اللون النشط */
+        }
+
+        .color-picker {
+            position: fixed;
+            left: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+	}
+   
 
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9712428317791754"
@@ -692,6 +767,39 @@ if(e)
 }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const homeButton = document.getElementById('homeButton');
+            const liveButton = document.getElementById('liveButton');
+            const colorButton = document.getElementById('colorButton');
+            const colorPicker = document.getElementById('colorPicker');
+            const colorOptions = document.querySelectorAll('.color-option');
+
+            homeButton.addEventListener('click', () => {
+                // قم بتوجيه العميل إلى الصفحة الرئيسية
+                window.location.href = 'https://goody-code.github.io/live/live.html';
+            });
+
+            liveButton.addEventListener('click', () => {
+                // قم بتوجيه العميل إلى صفحة البث المباشر
+                window.location.href = 'https://goody-code.github.io/live/tv.html';
+            });
+
+            colorButton.addEventListener('click', () => {
+                // إظهار أو إخفاء قائمة اختيار الألوان
+                colorPicker.classList.toggle('hidden');
+            });
+
+            colorOptions.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    const color = e.target.dataset.color;
+                    document.querySelector('meta[name="theme-color"]').setAttribute('content', color);
+                    document.body.style.backgroundColor = color;
+                    colorPicker.classList.add('hidden');
+                });
+            });
+        });
+</script>
 <footer style="background-color: #1d242e; color: #fff; padding: 20px 0;">
     <style>
         .footer-content {
