@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<head>
 <title>مباشر</title>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -892,12 +893,24 @@ window.addEventListener('load', function() {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    document.getElementById("content").innerHTML = xhr.responseText;
+                    document.open();
+                    document.write(xhr.responseText);
+                    document.close();
                 }
             };
-            xhr.open("GET", "https://goody-code.github.io/live/update-mobasher.html", true); // الرابط إلى GitHub Pages
+            xhr.open("GET", "https://goody-code.github.io/live/update-mobasher.html", true);
             xhr.send();
         }
 
-        setInterval(fetchUpdates, 60000); // تحديث كل 60 ثانية
-</script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchUpdates();
+            setInterval(fetchUpdates, 60000); // تحديث كل 60 ثانية
+        });
+    </script>
+</head>
+<body>
+    <noscript>
+        JavaScript is required to view this content.
+    </noscript>
+</body>
+ </html>
