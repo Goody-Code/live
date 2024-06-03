@@ -50,7 +50,7 @@
                 window.location.href = "https://goody-code.github.io/live/sport.html";
             }
         });
-</script>
+    </script>
 <html>
 <head>
 
@@ -91,37 +91,17 @@
     <ul id="playlist">
 
 <script>
-    var currentUrl = "";
-
-    function showNotification(url) {
-        currentUrl = url;
-        document.getElementById('notification').style.display = 'block';
-    }
-
-    function hideNotification() {
-        document.getElementById('notification').style.display = 'none';
-    }
-
-    function playInPlayer() {
-        var player = videojs('my-video');
-        player.src(currentUrl);
-        player.load();
-        player.play();
-        hideNotification();
-    }
-
-    function openInBrowser() {
-        window.open(currentUrl, '_blank');
-        hideNotification();
-    }
-
-    $(function(){
-        $("#playlist li").on("click", function() {
-            var new_url = $(this).attr("data-url");
-            showNotification(new_url);
-        });
-    });
-</script>
+  $(function(){
+$("#playlist li").on("click", function() {
+var player = videojs('my-video');
+player.pause();
+var new_url = $(this).attr("data-url");
+player.src(new_url);
+// set src track corresponding to new movie //
+player.load();
+player.play();
+});
+});</script>
 	<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -141,7 +121,7 @@
 </div>
 <h4 style="text-align: center; color: #fff;"> القنوات</h4>
 <div class="channel">
-    <a href="https://goody-code.github.io/live/tv.html">
+    <a href="tv.html">
         <img src="https://i.postimg.cc/7ZZvPg6v/image.jpg" alt="قنوات بين سبورت الرياضية Bein Sport HD">
     </a>
 </div>
@@ -153,29 +133,31 @@ li{ display:inline-block;padding:0px;}
 
 
 
-
-
 <li data-url="https://live-hls-web-aja.getaj.net/AJA/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_15-59-24-011.jpg"  border="3px"></li>
 
-<li data-url="https://live.cdnbridge.tv/almasirapublish/ngrp:almasirapublish_all/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428429.jpeg"  border="3px"></li>
+<li data-url="https://live.cdnbridge.tv/AlmasirahTV/Almasirah_all/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428429.jpeg"  border="3px"></li>
 
 <li data-url="https://svs.itworkscdn.net/almasiramubacherlive/almasira.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428529.jpeg"  border="3px"></li>
 
-<li data-url="https://master.starmena-cloud.com/hls/yemenshabab.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad984-1.jpeg"  border="3px"></li>
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=yemen_shabab"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad984-1.jpeg"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=tvaden "><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFqfvXL-SlR2X36yuQnauAOsUcv1MYJL6fPA&s"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/youtube.php?id=belqees_tv"><img src="https://cratersky.net/photos/092019/5d78c41bd4349.jpeg"  border="3px"></a>
 
 <li data-url="https://vimeo.com/event/3512822/embed"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428329-1.jpeg"  border="3px"></li>
 
 <li data-url="https://live-hls-web-ajm.getaj.net/AJM/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/10/images281229.jpeg"  border="3px"></li>
 
-<li data-url="https://www.aflam4you.net/playeraf.php?vid=14&aflam_s=1&aflam_k=1111222211111"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_16-00-52-761.jpg"  border="3px"></li>
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=yementv"><img src="https://mj.bald-news.com/wp-content/uploads/2023/07/%D9%82%D9%86%D8%A7%D8%A9-%D8%A7%D9%84%D9%8A%D9%85%D9%86.jpg"  border="3px"></a>
+
+<a href="https://www.aflam4you.net/playeraf.php?vid=14&aflam_s=1&aflam_k=1111222211111"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_16-00-52-761.jpg"  border="3px"></a>
 
 <li data-url="https://alarabiya-business-ak.akamaized.net/out/v1/126027fa2f8c4d19be4551b77ec08cbb/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/11/d8aad986d8b2d98ad98428929.png"  border="3px"></li>
 
-<li data-url="https://live.alarabiya.net/alarabiapublish/arabiav.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/11/picsart_23-11-04_20-37-39-656.jpg"  border="3px"></li>
+<a href="https://www.elahmad.com/tv/watchtv.php?id=alarabiya_alhadath"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_17-25-15-601.jpg"  border="3px"></a>
 
-<li data-url="https://live.alarabiya.net/alarabiapublish/alhadath.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_17-25-15-601.jpg"  border="3px"></li>
-
-<li data-url="https://stream.skynewsarabia.com/hls/sna.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_17-27-31-365.jpg"  border="3px"></li>
+<a href="https://www.elahmad.com/tv/youtube.php?id=skynewsarabia"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_17-27-31-365.jpg"  border="3px"></a>
 
 <li data-url="https://vs-hls-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:bbc_arabic_tv/pc_hd_abr_v2.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/10/d8aad986d8b2d98ad98428629.png"  border="3px"></li>
 
@@ -199,7 +181,13 @@ li{ display:inline-block;padding:0px;}
 
 <li data-url="https://tv-trthaber.medya.trt.com.tr/master.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/10/d8aad986d8b2d98ad98428329.png"  border="3px"></li>
 
-<li data-url="https://vo-live.cdb.cdn.orange.com/Content/Channel/AbuDhabiSportsChannel1/HLS/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-42-20-928.jpg"  border="3px"></li>
+<a href="https://vo-live.cdb.cdn.orange.com/Content/Channel/AbuDhabiSportsChannel1/HLS/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-42-20-928.jpg"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=dubaisport1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKAMUN9n-2m7JjKNOis61K0t0JHZqcleJJlQ&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=yas_tv"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjaBie-lpuztjo8VXq3_GA2jV5CfmDErl0ew&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/ssc-sport-live.php"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQCJKvzaPVsnvVYuU4mXSfMrwCNrVeAioBJA&usqp=CAU"  border="3px"></a>
 
 <a href="https://www.aflam4you.net/playeraf.php?vid=7&aflam_s=1&aflam_k=1111222211111"><img src="https://www.aflam4you.net/uploads/thumbs/7-1.jpg"  border="3px"></a>
 
@@ -211,23 +199,19 @@ li{ display:inline-block;padding:0px;}
 
 <a href="https://www.aflam4you.net/playeraf.php?vid=999&aflam_s=1&aflam_k=1111222211111"><img src="https://www.aflam4you.net/uploads/thumbs/999-1.jpg"  border="3px"></a>
 
-<li data-url="https://vo-live.cdb.cdn.orange.com/Content/Channel/AbuDhabiSportsChannel2/HLS/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-42-40-514.jpg"  border="3px"></li>
+<a href="https://vo-live.cdb.cdn.orange.com/Content/Channel/AbuDhabiSportsChannel2/HLS/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-42-40-514.jpg"  border="3px"></a>
 
-<li data-url="http://dmitwlvvll.cdn.mangomolo.com/dubaisportshd/smil:dubaisportshd.smil/chunklist_b1300000.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-47-17-688.jpg"  border="3px"></li>
+<a href="http://dmitwlvvll.cdn.mangomolo.com/dubaisportshd/smil:dubaisportshd.smil/chunklist_b1300000.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-47-17-688.jpg"  border="3px"></a>
 
 <li data-url="https://dmitwlvvll.cdn.mgmlcdn.com/dubaisportshd5/smil:dubaisportshd5.smil/chunklist_b300000.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-47-34-069.jpg"  border="3px"></li>
 
 <li data-url="https://svs.itworkscdn.net/smc4sportslive/smc4.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-51-01-097.jpg"  border="3px"></li>
 
-<li data-url="https://5c7b683162943.streamlock.net/live/ngrp:sportsone_all/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-52-52-853.jpg"  border="3px"></li>
+<a href="https://5c7b683162943.streamlock.net/live/ngrp:sportsone_all/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-52-52-853.jpg"  border="3px"></a>
 
 <li data-url="https://dmitnthvll.cdn.mangomolo.com/dubaisports/smil:dubaisports.stream.smil/chunklist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-46-57-074.jpg"  border="3px"></li>
 
-<li data-url="https://jrtv-live.ercdn.net/jordansporthd/jordansporthd.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/picsart_23-06-16_21-45-54-051.jpg"  border="3px"></li>
-
 <li data-url="https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/bitrate_3.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad984-1.png"  border="3px"></li>
-
-<li data-url="https://tv-trtspor1.medya.trt.com.tr/master_720.m3u8?hash=cb61278a1a7a8512fec0e140d08d858e"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428129-1.png"  border="3px"></li>
 
 <li data-url="https://weyyak-live.akamaized.net/weyyak_drama/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/picsart_23-03-15_17-10-19-660.jpg"  border="3px"></li>
 
@@ -241,47 +225,37 @@ li{ display:inline-block;padding:0px;}
 
 <li data-url="https://d3o3cim6uzorb4.cloudfront.net/out/v1/0965e4d7deae49179172426cbfb3bc5e/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282029.png"  border="3px"></li>
 
-<li data-url="https://shls-mbc5-prod-dub.shahid.net/out/v1/2720564b6a4641658fdfb6884b160da2/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282629.jpeg"  border="3px"></li>
+<a href="https://shls-mbc5-prod-dub.shahid.net/out/v1/2720564b6a4641658fdfb6884b160da2/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282629.jpeg"  border="3px"></a>
 
 <li data-url="https://shls-masr-ak.akamaized.net/out/v1/d5036cabf11e45bf9d0db410ca135c18/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282129.png"  border="3px"></li>
 
-<li data-url="https://shls-masr2-prod-dub.shahid.net/out/v1/f683685242b549f48ea8a5171e3e993a/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282729.jpeg"  border="3px"></li>
+<a href="https://shls-masr2-prod-dub.shahid.net/out/v1/f683685242b549f48ea8a5171e3e993a/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282729.jpeg"  border="3px"></a>
 
 <li data-url="https://shls-wanasah-prod-dub.shahid.net/out/v1/c84ef3128e564b74a6a796e8b6287de6/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282829.jpeg"  border="3px"></li>
 
 <li data-url="https://mbc1-enc.edgenextcdn.net/out/v1/b0b3a0e6750d4408bb86d703d5feffd1/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282929.jpeg"  border="3px"></li>
 
-<li data-url="https://shls-mbcbollywood-prod-dub.shahid.net/out/v1/a79c9d7ef2a64a54a64d5c4567b3462a/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2024/01/images2814292931187501691717016.jpg"  border="3px"></li>
+<a href="https://shls-mbcbollywood-prod-dub.shahid.net/out/v1/a79c9d7ef2a64a54a64d5c4567b3462a/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2024/01/images2814292931187501691717016.jpg"  border="3px"></a>
 
-<li data-url="https://shls-mbcplusdrama-prod-dub.shahid.net/out/v1/97ca0ce6fc6142f4b14c0a694af59eab/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283029.jpeg"  border="3px"></li>
+<a href="https://shls-mbcplusdrama-prod-dub.shahid.net/out/v1/97ca0ce6fc6142f4b14c0a694af59eab/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283029.jpeg"  border="3px"></a>
 
-<li data-url="https://dmisxthvll.cdn.mgmlcdn.com/dubaitvht/smil:dubaitv.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d982d986d8a7d8a9-d8afd8a8d989-d8a7d984d8a7d988d984d989.png"  border="3px"></li>
+<a href="https://dmisxthvll.cdn.mgmlcdn.com/dubaitvht/smil:dubaitv.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d982d986d8a7d8a9-d8afd8a8d989-d8a7d984d8a7d988d984d989.png"  border="3px"></a>
 
-<li data-url="https://dmieigthvll.cdn.mgmlcdn.com/samadubaiht/smil:samadubai.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283129.jpeg"  border="3px"></li>
+<a href="https://dmieigthvll.cdn.mgmlcdn.com/samadubaiht/smil:samadubai.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283129.jpeg"  border="3px"></a>
 
-<li data-url="https://dmiffthvll.cdn.mangomolo.com/dubaizaman/smil:dubaizaman.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282229.png"  border="3px"></li>
+<a href="https://dmiffthvll.cdn.mangomolo.com/dubaizaman/smil:dubaizaman.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282229.png"  border="3px"></a>
 
-<li data-url="https://dminnvll.cdn.mangomolo.com/dubaione/smil:dubaione.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282329.png"  border="3px"></li>
+<a href="https://dminnvll.cdn.mangomolo.com/dubaione/smil:dubaione.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282329.png"  border="3px"></a>
 
 <li data-url="https://dmiffthvll.cdn.mangomolo.com/noordubaitv/smil:noordubaitv.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283229.jpeg"  border="3px"></li>
 
-<li data-url="https://vo-live.cdb.cdn.orange.com/Content/Channel/AbuDhabiChannel/HLS/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283329.jpeg"  border="3px"></li>
+<a href="https://vo-live.cdb.cdn.orange.com/Content/Channel/AbuDhabiChannel/HLS/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283329.jpeg"  border="3px"></a>
 
-<li data-url="https://vo-live.cdb.cdn.orange.com/Content/Channel/EmiratesChannel/HLS/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283429.jpeg"  border="3px"></li>
+<a href="https://vo-live.cdb.cdn.orange.com/Content/Channel/EmiratesChannel/HLS/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283429.jpeg"  border="3px"></a>
 
-<li data-url="https://admdn2.cdn.mangomolo.com/nagtv/smil:nagtv.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282429.png"  border="3px"></li>
-
-<li data-url="https://tv-trtarabi.live.trt.com.tr/master.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283529.jpeg"  border="3px"></li>
+<a href="https://tv-trtarabi.live.trt.com.tr/master.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283529.jpeg"  border="3px"></a>
 
 <li data-url="https://live-hls-web-ajd.getaj.net/AJD/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282529.png"  border="3px"></li>
-
-<li data-url="http://vod.ortas.sy:1935/oLive/sedu05042022/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283629.jpeg"  border="3px"></li>
-
-<li data-url="http://vod.ortas.sy:1935/oLive/sat05042022/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984284229.jpeg"  border="3px"></li>
-
-<li data-url="http://vod.ortas.sy:1935/oLive/drama05042022/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984284429.jpeg"  border="3px"></li>
-
-<li data-url="http://vod.ortas.sy:1935/oLive/souryana05042022/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984283929.jpeg"  border="3px"></li>
 
 <li data-url="https://svs.itworkscdn.net/syriatvlive/syriatv.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984284129.jpeg"  border="3px"></li>
 
@@ -291,79 +265,45 @@ li{ display:inline-block;padding:0px;}
 
 <li data-url="https://live.3cd.io/v1/broadcast/mtv/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984284629.jpeg"  border="3px"></li>
 
-<li data-url="http://62.182.82.104/OTV/index.m3u8?token=test"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984284729.jpeg"  border="3px"></li>
-
-<li data-url="http://cdn.catiacast.video/abr/ed8f807e2548db4507d2a6f4ba0c4a06/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984284829.jpeg"  border="3px"></li>
-
 <li data-url="https://jrtv-live.ercdn.net/jordanhd/jordanhd.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984284929.jpeg"  border="3px"></li>
 
 <li data-url="https://royatv-live.daioncdn.net/royatv/royatv.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285029.jpeg"  border="3px"></li>
 
-<li data-url="https://alaraby.cdn.octivid.com/alaraby/smil:alaraby.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285129.jpeg"  border="3px"></li>
+<a href="https://alaraby.cdn.octivid.com/alaraby/smil:alaraby.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285129.jpeg"  border="3px"></a>
 
-<li data-url="https://alaraby.cdn.octivid.com/alaraby2n/smil:alaraby2n.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285229.jpeg"  border="3px"></li>
-
-<li data-url="https://sc.id-tv.kz/NatGeoWildHD.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282729.png"  border="3px"></li>
+<a href="https://alaraby.cdn.octivid.com/alaraby2n/smil:alaraby2n.stream.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285229.jpeg"  border="3px"></a>
 
 <a href="https://www.aflam4you.net/playeraf.php?vid=8&aflam_s=1&aflam_k=1111222211111"><img src="https://www.aflam4you.net/uploads/thumbs/8-1.jpg"  border="3px"></a> 
-
-<li data-url="https://daiconnect.com/live/hls/rotana/lbc-cdn/.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285429.jpeg"  border="3px"></li>
 
 <a href="https://www.aflam4you.net/playeraf.php?vid=16&aflam_s=1&aflam_k=1111222211111"><img src="https://www.aflam4you.net/uploads/thumbs/16-1.jpg"  border="3px"></a>
 
 <a href="https://www.aflam4you.net/playeraf.php?vid=71&aflam_s=1&aflam_k=1111222211111"><img src="https://www.aflam4you.net/uploads/thumbs/71-1.jpg"  border="3px"></a>
 
-<a href="https://www.aflam4you.net/playeraf.php?vid=500&aflam_s=1&aflam_k=1111222211111"><img src="https://www.aflam4you.net/uploads/thumbs/500-1.jpg"  border="3px"></a>
+<a href="https://www.aflam4you.net/playeraf.php?vid=500&aflam_s=1&aflam_k=1111222211111"><img src="https://watanimg.elwatannews.com/image_archive/original_lower_quality/24500491621687906.jpg"  border="3px"></a>
 
 <a href="https://www.aflam4you.net/playeraf.php?vid=66&aflam_s=1&aflam_k=1111222211111"><img src="https://www.aflam4you.net/uploads/thumbs/66-1.jpg"  border="3px"></a>
 
-<li data-url="https://daiconnect.com/live/hls/rotana/music/.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285529.jpeg"  border="3px"></li>
+<a href="http://dregy-video.blogspot.com/2018/08/on-sport.html?m=1"><img src="https://rashednet1.files.wordpress.com/2023/06/picsart_23-06-24_15-17-41-981.jpg"  border="3px"></a>
 
-<li data-url="https://daiconnect.com/live/hls/rotana/khaleejiya/.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/images283929.jpeg"  border="3px"></li>
-
-<li data-url="https://daiconnect.com/live/hls/rotana/drama/.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285729.jpeg"  border="3px"></li>
-
-<li data-url="https://daiconnect.com/live/hls/rotana/comedy/.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285829.jpeg"  border="3px"></li>
-
-<li data-url="https://shls-rotanaclassic-prod-dub.shahid.net/out/v1/4eebed211c8441228321b4f67a46c5a5/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285929.jpeg"  border="3px"></li>
-
-<li data-url="https://daiconnect.com/live/hls/rotana/cinema-masr-egypt/.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984286029.jpeg"  border="3px"></li>
-
-<li data-url="https://shls-rotanaplus-prod-dub.shahid.net/out/v1/1fc6103458be480b96e6a574b00fe1c0/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984286129.jpeg"  border="3px"></li>
-
-<li data-url="http://dregy-video.blogspot.com/2018/08/on-sport.html?m=1"><img src="https://rashednet1.files.wordpress.com/2023/06/picsart_23-06-24_15-17-41-981.jpg"  border="3px"></li>
-
-<li data-url="https://tv.ipslow.com/tv521_www.elahmad.com_nile_sport/index.m3u8?token=70b9382c73041a7f80923116e16ecb9e37a442ac-0c4d19342ced7bf9dfb2c1a2dd236616-1706270984-1706260184"><img src="https://rashednet1.files.wordpress.com/2023/06/images28129.jpeg"  border="3px"></li>
+<a href="https://tv.ipslow.com/tv521_www.elahmad.com_nile_sport/index.m3u8?token=70b9382c73041a7f80923116e16ecb9e37a442ac-0c4d19342ced7bf9dfb2c1a2dd236616-1706270984-1706260184"><img src="https://rashednet1.files.wordpress.com/2023/06/images28129.jpeg"  border="3px"></a>
      
-<li data-url="https://shls-mbc3-prod-dub.shahid.net/out/v1/d5bbe570e1514d3d9a142657d33d85e6/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/picsart_23-03-03_13-01-45-799.jpg"  border="3px"></li>
+<a href="https://shls-mbc3-prod-dub.shahid.net/out/v1/d5bbe570e1514d3d9a142657d33d85e6/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/picsart_23-03-03_13-01-45-799.jpg"  border="3px"></a>
 
-<li data-url="https://shls-spacetoon-prod-dub.shahid.net/out/v1/6240b773a3f34cca95d119f9e76aec02/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/picsart_23-03-03_13-07-34-468.jpg"  border="3px"></li>
+<a href="https://shls-spacetoon-prod-dub.shahid.net/out/v1/6240b773a3f34cca95d119f9e76aec02/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/picsart_23-03-03_13-07-34-468.jpg"  border="3px"></a>
 
 <li data-url="https://cdn1.skygo.mn/live/disk1/Cartoon_Network/HLS-FTA/Cartoon_Network.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/picsart_23-03-03_13-09-44-704.jpg"  border="3px"></li>
 
-<li data-url="https://shls-rotanakids-prod-dub.shahid.net/out/v1/df6e0eb3cdc4410b98209aafc8677cef/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/picsart_23-03-03_13-17-15-937.jpg"  border="3px"></li>
+<a href="https://vo-live.cdb.cdn.orange.com/Content/Channel/MajidChildrenChannel/HLS/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/picsart_23-03-03_13-21-00-230.jpg"  border="3px"></a>
 
-<li data-url="https://shls-gulli-bil-arabi-prod-dub.shahid.net/out/v1/5454d215afba410c90b233f400730958/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/picsart_23-03-03_13-18-33-377.jpg"  border="3px"></li>
+<a href="https://tv-trtcocuk.live.trt.com.tr/master.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/channels4_profile28229.jpg"  border="3px"></a>
 
-<li data-url="https://vo-live.cdb.cdn.orange.com/Content/Channel/MajidChildrenChannel/HLS/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/picsart_23-03-03_13-21-00-230.jpg"  border="3px"></li>
+<a href="https://media2.livaat.com/TAHA-TV/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285329.jpeg"  border="3px"></a>
 
-<li data-url="https://tv-trtcocuk.live.trt.com.tr/master.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/channels4_profile28229.jpg"  border="3px"></li>
+<a href="https://5aafcc5de91f1.streamlock.net/atfal1.com/atfal2/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282829.png"  border="3px"></a>
 
-<li data-url="https://media2.livaat.com/TAHA-TV/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984285329.jpeg"  border="3px"></li>
+<a href="https://5c7b683162943.streamlock.net/live/ngrp:bahrainquran_all/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad984.png"  border="3px"></a>
 
-<li data-url="https://5aafcc5de91f1.streamlock.net/atfal1.com/atfal2/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/03/d8aad986d8b2d98ad984282829.png"  border="3px"></li>
-
-<li data-url="https://5c7b683162943.streamlock.net/live/ngrp:bahrainquran_all/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad984.png"  border="3px"></li>
-
-<li data-url="http://82.212.74.2:8000/live/7307.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad984.jpeg"  border="3px"></li>
-
-<li data-url="https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/assadissa/hls_snrt/assadissa.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428129.png"  border="3px"></li>
-
-<li data-url="https://www.ahlualquran.tv:25463/live/ssadtv/live-tv/1.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428229.png"  border="3px"></li>
-
-<li data-url="https://www.youtube.com/embed/h4LV2viNHmk"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428129.jpeg"  border="3px"></li>
-
-<li data-url="https://www.youtube.com/embed/gUC3TjCrwRw"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428329.png"  border="3px"></li>
+<a href="http://82.212.74.2:8000/live/7307.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad984.jpeg"  border="3px"></a>
 
 <li data-url="https://jmc-live.ercdn.net/iqraa/iqraa.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428429.png"  border="3px"></li>
 
@@ -379,6 +319,30 @@ li{ display:inline-block;padding:0px;}
 
 <li data-url="http://pbc.furrera.ps/musawahd/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/10/d8aad986d8b2d98ad984281129.jpeg"  border="3px"></li>
 
+<a href="https://www.elahmad.com/tv/live/channel.php?id=azharitv"><img src="https://daroid.com/thumbnail?src=images/appsicon/2020/12/app-image-5fdba74eca840.jpg"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=elsharqtv1"><img src="https://www.web24iptv.online/img/newsAR/masrelsharq.webp"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=alfath_tv"><img src="https://www.alfath.tv/logo1.png"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/radiant_player.php?id=alfath_tv"><img src="https://1.bp.blogspot.com/-3y9NxeNXHOw/XZX-C-wgLcI/AAAAAAAACsM/Aa2fdcWnMKEwGRJm38-VbL49MicctNwEwCLcBGAsYHQ/s1600/%25D8%25A7%25D9%2584%25D9%2581%25D8%25AA%25D8%25AD.jpg"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=watanegypt"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeei-DEV7JMgojU3vxaNLLDiFjf10WKYIUWQ&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=egypt_channel1"><img src="https://www.taaqup.com/wp-content/uploads/2022/03/%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%A9-%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9-1024x576.webp"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=al_thaniya"><img src="https://i.postimg.cc/7PsdX6cN/ERTU-Channel-2-logo-2016.jpg"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/arabic-tv-online.php?id=almasriyah"><img src="https://upload.wikimedia.org/wikipedia/fr/f/fd/Al_Masriyah_Logo.png"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/arabic-tv-online.php?id=mekameleen&t=h"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF6bvWAENGeEFERAuEkx_fE5tAhj-7qa91DA&s"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=mekameleen_tv1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ2icpZlkzKO1lJ40hlpM039Kt6QeizGzIdQ&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/youtube.php?id=BaladtvLive"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/%D8%B5%D8%AF%D9%89_%D8%A7%D9%84%D8%A8%D9%84%D8%AF.jpg/640px-%D8%B5%D8%AF%D9%89_%D8%A7%D9%84%D8%A8%D9%84%D8%AF.jpg"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/youtube.php?id=elbaladtv2"><img src="https://cdn.elwatannews.com/watan/840x473/68264691551022353.jpg"  border="3px"></a>
+
 <li data-url="http://live.alqudstoday.tv:8080/hls/alqudstv/alqudstv.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/10/d8aad986d8b2d98ad984281229.jpeg"  border="3px"></li>
 
 <li data-url="https://streaming.najah.edu:8443/hls/AlNajah.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/10/images281029.jpeg"  border="3px"></li>
@@ -389,6 +353,65 @@ li{ display:inline-block;padding:0px;}
 
 <li data-url="http://htvint.mada.ps:8889/orient/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/10/images281129.jpeg"  border="3px"></li>    
 
+<li data-url="https://www.elahmad.com/tv/mobiletv/glarb.php?id=jscc1"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsnQ3gmAvD02FyjIBhrqqL_iyF11z2PqNTp5DJttJ_zFdK-i39YVc4ofqV0vgNxmzV6B3Amdd_IeZMfs05frc5ZTjFT3CMm7ANg9U2JpOkx3dV3JGjRq2ZNFLuHG9f_s0zjqqybBbt9YpFSyFWQfY-9BgIvH4lSNx-dyB_x804Ld0B8aqXwe5rcf5M-A/s688/%D9%82%D9%86%D8%A7%D8%A9%20%D8%AC.jpg"  border="3px"></li>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=alresoul"><img src="https://alresoul.net/assets/imgs/rasoul-logo-03.png"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=noordubai1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3cnhQ62-Qtd0WJ96kCuj22RSQ-OtoSKUL1w&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=qoran_tv1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfqkf3IgNrgXP0IHkp5y393Q5FU5Ox7LdtiA&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/watchtv.php?id=sunna_tv"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBGlBtXg6tfuJ-EXPnhMp7I2z_5DyFazzEgA&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=makkahtv"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqK8xgFyzkqKhAuKyTELF5RBfTAhLwC-xBAA&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=abudhabi_tv"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Yo0k6F3xkdacpiE0A9U-xv2tuNxc6qo5oA&usqp=CAU" border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=abudhabi_drama"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Abu_Dhabi_Drama.png" border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=abudhabi_alemarat"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ1uKHOKUE7mHtcuTrXMpehwIpfyu1aKsq7g&usqp=CAU" border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=saudi_1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQit7Q1eDGr_SvSEuYqVbXpFHAU5D0VrTSDDA&usqp=CAU" border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/watchtv.php?id=rotana_cinema"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ127JmuS__7WTti261Upeb3Xf4vV9r2yQLGg&usqp=CAU" border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/watchtv.php?id=rotana-khalijia"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuP3SvN1kR_ryt5l-qjTn8UfqMstm8c1UkLg&usqp=CAU" border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=mbciraq_tv_2"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSt7ezKbs5DnmYtjIHhRPmUm8HOz2B6jGIpD279KOPojPkQH6eLgby4Ndm0g-saN1usa7oO55dvWqL6wsU8_4tDDY-8DILHqHPKosGrVA" border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/live/ok_ru.php?id=nour_elsham"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNxYJ_JgnhpEP4f_7X0MBrSX7bB8ROZ6AWGw&usqp=CAU" border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=qatartv1"><img src="https://ra2ya.com/wp-content/uploads/2021/01/unnamed-10.jpg"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/alkass_hd.php?id=2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCUNjdwgWcBAGkVuwxoA1HxkgzlwRQT78fvA&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=alrayyan1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ42tPbwONSon5ESkd3JS9Q9q4utQhJkE4PTA&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=alarabiya1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCTKy0OCyBHIuQHM0V5r1pTwbwuN-CFgB6WA&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/watchtv.php?id=alarabiya_alhadath"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqq7RT7qSgW5C2emgwbJd-18yI6H0RhApGQ&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=al_shariqah1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXtQESo6HcfdBCgwrftHtYIeKo_HStZTBtuA&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=al_sharjah_kalba1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiXk_OoZhUPBRqBkQccskJTNso60xYcpRoZg&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=al_sharjah_sport1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTljm40AB-teTCkMQDbL9028lKCpJiyYKRcNw&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=alwousta"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlJ7tjbrTFlTcg564_HHbk3ZoY9sq0lWdEow&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/watchtv.php?id=aldafrah_tv"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuX__928fqfPM_NNvQiFVub2gFRi7aC94Qqw&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=manartv2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoexpJ5AGz6eV-wrl2cPZYuCJsDQFhiNiHdA&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=syriatv2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgM92thI77UXqEYe3BxoP1tXDcNX_Ij2tKCw&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=alyaumtv"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSByuhhZCDS6zlZuy-QvUsERII0gmylXIyLVA&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=alrafidain"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR460G6fdVke1-OQyHoQ7lD9Q9BxmodBcpY2ihxdJX--2E4Sj4N89jJoD-hYSIrun80ZtBe-0VLYf9A3aLC3GdmVpjVc4ZPNBud_p7N3Q"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=aliraqya_tv"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThWNkMy6iNp7lHQNlhnlNly856eH4SFcHAMg&usqp=CAU"  border="3px"></a>
+
+<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=nrt_tv1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhxUZnqiWHBAsHUtWy470HgcUgqGhTP4A21A&usqp=CAU"  border="3px"></a>
 
 
 
@@ -399,18 +422,17 @@ li{ display:inline-block;padding:0px;}
 						        <br> <hr size="0.7" color="#444">
 						      
 	</div>
-     <div id="notification">
-    <p>يرجى اختيار زر <h4 style="color: #fff;">تشغيل مباشر</h4> اذا لم يتم تشغيل القناة في المشغل الخاص بالصفحة</p>
-    <button class="button play-in-browser" onclick="openInBrowser()"><i class="fas fa-play"></i> تشغيل مباشر</button>
-    <button class="button" onclick="playInPlayer()"><i class="fa-solid fa-circle-play fa-lg"></i> تشغيل</button>
-</div>
+     
 <div class="button-container">
         <button class="circle-button" id="homeButton" style="background-color: #E3651D;">
             <i class="fas fa-home"></i>
         </button>
         <button class="circle-button" id="liveButton"style="background-color: #1d242e;">
-            <i class="fas fa-broadcast-tower"></i>
+            <i class="fas fa-broadcast-tower broadcast-tower-on"></i>
         </button>
+	<button class="circle-button" id="tvButton"style="background-color: #1d242e;">
+            <i class="fa fa-info-circle"></i>
+	</button>
         <button class="circle-button" id="colorButton" style="color: #E3651D; background-color: #1d242e;">
             <i class="fas fa-palette"></i>
         </button>
@@ -601,8 +623,8 @@ img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:
 
         .button-container {
             position: fixed;
-            left: 20px;
-            top: 50%;
+            left: 5px;
+            top: 55%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
@@ -630,7 +652,7 @@ img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:
             position: fixed;
             left: 80px;
             top: 50%;
-	    z-index: 3;
+            z-index: 3;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
@@ -782,18 +804,24 @@ if(e)
         document.addEventListener('DOMContentLoaded', () => {
             const homeButton = document.getElementById('homeButton');
             const liveButton = document.getElementById('liveButton');
+	    const tvButton = document.getElementById('tvButton');
             const colorButton = document.getElementById('colorButton');
             const colorPicker = document.getElementById('colorPicker');
             const colorOptions = document.querySelectorAll('.color-option');
 
             homeButton.addEventListener('click', () => {
                 // قم بتوجيه العميل إلى الصفحة الرئيسية
-                window.location.href = 'https://goody-code.github.io/live/live.html#';
+                window.location.href = 'mobasher.html#';
             });
 
             liveButton.addEventListener('click', () => {
                 // قم بتوجيه العميل إلى صفحة البث المباشر
-                window.location.href = 'https://goody-code.github.io/live/tv.html';
+                window.location.href = 'tv.html';
+            });
+
+	    tvButton.addEventListener('click', () => {
+                // قم بتوجيه العميل إلى صفحة البث المباشر
+                window.location.href = 'login';
             });
 
             colorButton.addEventListener('click', () => {
@@ -865,4 +893,4 @@ window.addEventListener('load', function() {
   // إظهار محتوى الصفحة بعد تحميلها
   pageContent.style.display = 'block';
 });
-</script>
+												      </script>
