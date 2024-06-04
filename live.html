@@ -746,6 +746,77 @@ img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:
         .circle-button:hover .tooltip {
             opacity: 1;
 	}
+
+	body {
+    margin: 0;
+    overflow: hidden; /* لمنع التمرير أثناء عرض الواجهة الترحيبية */
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #d91048;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none;
+}
+
+.welcome-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.welcome-screen.show {
+    opacity: 1;
+}
+
+.circle-button {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.circle-button.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.enlarge {
+    transform: scale(1.2);
+}
+
+.tooltip {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9712428317791754"
      crossorigin="anonymous"></script>
