@@ -923,44 +923,49 @@ if(e)
         const colorPicker = document.getElementById('colorPicker');
         const colorOptions = document.querySelectorAll('.color-option');
 
+        let hasWelcomeScreenShown = false;
+
         // إخفاء شاشة التحميل بعد 3 ثوانٍ
         setTimeout(() => {
             loader.style.display = 'none';
             welcomeScreen.classList.remove('hidden');
             setTimeout(() => {
                 welcomeScreen.classList.add('show');
-            }, 4000); // تأخير بسيط لضمان تطبيق الانتقال
-        }, 10000); // 3 ثواني
+            }, 100); // تأخير بسيط لضمان تطبيق الانتقال
+        }, 3000); // 3 ثواني
 
         // إخفاء شاشة الترحيب بعد 3 ثوانٍ من ظهورها
         setTimeout(() => {
-            welcomeScreen.classList.remove('show');
-            setTimeout(() => {
-                welcomeScreen.style.display = 'none';
-                // بعد إخفاء شاشة الترحيب، إظهار الأزرار
-                const buttons = [homeButton, liveButton, tvButton, colorButton];
-                let index = 0;
+            if (!hasWelcomeScreenShown) {
+                hasWelcomeScreenShown = true;
+                welcomeScreen.classList.remove('show');
+                setTimeout(() => {
+                    welcomeScreen.style.display = 'none';
+                    // بعد إخفاء شاشة الترحيب، إظهار الأزرار
+                    const buttons = [homeButton, liveButton, tvButton, colorButton];
+                    let index = 0;
 
-                const showButtonWithTooltip = () => {
-                    if (index < buttons.length) {
-                        const button = buttons[index];
-                        button.classList.add('visible');
-                        button.classList.add('enlarge');
-                        const tooltip = button.querySelector('.tooltip');
-                        tooltip.style.opacity = '1';
+                    const showButtonWithTooltip = () => {
+                        if (index < buttons.length) {
+                            const button = buttons[index];
+                            button.classList.add('visible');
+                            button.classList.add('enlarge');
+                            const tooltip = button.querySelector('.tooltip');
+                            tooltip.style.opacity = '1';
 
-                        setTimeout(() => {
-                            button.classList.remove('enlarge');
-                            tooltip.style.opacity = '0';
-                            index++;
-                            showButtonWithTooltip();
-                        }, 2000);
-                    }
-                };
+                            setTimeout(() => {
+                                button.classList.remove('enlarge');
+                                tooltip.style.opacity = '0';
+                                index++;
+                                showButtonWithTooltip();
+                            }, 2000);
+                        }
+                    };
 
-                setTimeout(showButtonWithTooltip, 500); // تأخير بسيط لضمان ظهور الأزرار بسلاسة
-            }, 1000); // تأخير لإخفاء شاشة الترحيب بالكامل
-        }, 4000); // بعد 6 ثواني من تحميل الصفحة
+                    setTimeout(showButtonWithTooltip, 500); // تأخير بسيط لضمان ظهور الأزرار بسلاسة
+                }, 1000); // تأخير لإخفاء شاشة الترحيب بالكامل
+            }
+        }, 6000); // بعد 6 ثواني من تحميل الصفحة
 
         // إضافة استماع للنقر على الأزرار
         homeButton.addEventListener('click', () => {
@@ -988,7 +993,7 @@ if(e)
             });
         });
     });
-</script>
+		</script>
 <footer style="background-color: #1d242e; color: #fff; padding: 20px 0;">
     <style>
         .footer-content {
