@@ -649,13 +649,13 @@ img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:
         }
 
         .welcome-screen h1 {
-            font-size: 48px;
+            font-size: 30px;
             margin: 0;
             animation: slideInDown 2s ease-out;
         }
 
         .welcome-screen p {
-            font-size: 20px;
+            font-size: 15px;
             margin: 10px 0 0;
             animation: slideInUp 2s ease-out;
         }
@@ -762,7 +762,7 @@ img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:
     align-items: center;
     flex-direction: column;
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 5.s;
 }
 
 .welcome-screen.show {
@@ -932,8 +932,8 @@ if(e)
             welcomeScreen.classList.remove('hidden');
             setTimeout(() => {
                 welcomeScreen.classList.add('show');
-            }, 1000); // تأخير بسيط لضمان تطبيق الانتقال
-        }, 6000); // 3 ثواني
+            }, 4000); // تأخير بسيط لضمان تطبيق الانتقال
+        }, 10000); // 3 ثواني
 
         // إخفاء شاشة الترحيب بعد 3 ثوانٍ من ظهورها
         setTimeout(() => {
