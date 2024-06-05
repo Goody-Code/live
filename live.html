@@ -99,24 +99,18 @@
 
                 if (videoUrlMatch) {
                     const videoUrl = videoUrlMatch[1];
-                    const existingItem = document.querySelector('.channel2 li[data-url="'+videoUrl+'"]');
-                    if (!existingItem) {
-                        const newListItem = document.createElement('li');
-                        newListItem.setAttribute('data-url', videoUrl);
-                        newListItem.innerHTML = '<img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428429.jpeg" border="3px">';
-                        const channel2 = document.querySelector('.channel2');
-                        channel2.insertBefore(newListItem, channel2.children[0]);
+                    const fixedChannel = document.getElementById('fixed-channel');
+                    fixedChannel.setAttribute('data-url', videoUrl);
 
-                        // Adding event listener to the new item
-                        $(newListItem).on("click", function() {
-                            var player = videojs('my-video');
-                            player.pause();
-                            var new_url = $(this).attr("data-url");
-                            player.src(new_url);
-                            player.load();
-                            player.play();
-                        });
-                    }
+                    // Adding event listener to the fixed item
+                    $(fixedChannel).on("click", function() {
+                        var player = videojs('my-video');
+                        player.pause();
+                        var new_url = $(this).attr("data-url");
+                        player.src(new_url);
+                        player.load();
+                        player.play();
+                    });
                 }
             } catch (error) {
                 console.error('Error fetching video source:', error);
@@ -169,6 +163,7 @@ li{ display:inline-block;padding:0px;}
 
 <div class="channel2">
 	<li data-url="https://live-hls-web-aja.getaj.net/AJA/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_15-59-24-011.jpg"  border="3px"></li>
+	<li id="fixed-channel" data-url=""><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428429.jpeg" border="3px"></li>
 	<li data-url="https://svs.itworkscdn.net/almasiramubacherlive/almasira.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428529.jpeg"  border="3px"></li>
 
 
