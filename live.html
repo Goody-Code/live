@@ -91,17 +91,52 @@
     <ul id="playlist">
 
 <script>
-  $(function(){
-$("#playlist li").on("click", function() {
-var player = videojs('my-video');
-player.pause();
-var new_url = $(this).attr("data-url");
-player.src(new_url);
-// set src track corresponding to new movie //
-player.load();
-player.play();
-});
-});</script>
+        async function updateVideoSource() {
+            try {
+                const response = await fetch('https://corsproxy.io/?https://www.masirahtv.net/live.php');
+                const text = await response.text();
+                const videoUrlMatch = text.match(/myPlayer\.src\("([^"]+)"\)/);
+
+                if (videoUrlMatch) {
+                    const videoUrl = videoUrlMatch[1];
+                    const existingItem = document.querySelector('.channel2 li[data-url="'+videoUrl+'"]');
+                    if (!existingItem) {
+                        const newListItem = document.createElement('li');
+                        newListItem.setAttribute('data-url', videoUrl);
+                        newListItem.innerHTML = '<img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428429.jpeg" border="3px">';
+                        const channel2 = document.querySelector('.channel2');
+                        channel2.insertBefore(newListItem, channel2.children[0]);
+
+                        // Adding event listener to the new item
+                        $(newListItem).on("click", function() {
+                            var player = videojs('my-video');
+                            player.pause();
+                            var new_url = $(this).attr("data-url");
+                            player.src(new_url);
+                            player.load();
+                            player.play();
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching video source:', error);
+            }
+        }
+
+        updateVideoSource();
+        setInterval(updateVideoSource, 60000); // Check for updates every 60 seconds
+
+        $(function() {
+            $("#playlist li").on("click", function() {
+                var player = videojs('my-video');
+                player.pause();
+                var new_url = $(this).attr("data-url");
+                player.src(new_url);
+                player.load();
+                player.play();
+            });
+        });
+</script>
 	<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -131,13 +166,13 @@ li{ display:inline-block;padding:0px;}
 </style>
 
 
+<div class="channel2">
+	<li data-url="https://live-hls-web-aja.getaj.net/AJA/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_15-59-24-011.jpg"  border="3px"></li>
+	<li data-url="https://svs.itworkscdn.net/almasiramubacherlive/almasira.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428529.jpeg"  border="3px"></li>
 
 
-<li data-url="https://live-hls-web-aja.getaj.net/AJA/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_15-59-24-011.jpg"  border="3px"></li>
+</div>
 
-<li data-url="https://live.cdnbridge.tv/AlmasirahTV/Almasirah_all/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428429.jpeg"  border="3px"></li>
-
-<li data-url="https://svs.itworkscdn.net/almasiramubacherlive/almasira.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428529.jpeg"  border="3px"></li>
 
 <a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=yemen_shabab"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad984-1.jpeg"  border="3px"></a>
 
@@ -423,11 +458,6 @@ li{ display:inline-block;padding:0px;}
 						      
 	</div>
      
-<div class="welcome-screen" id="welcomeScreen">
-        <h1>مرحبًا بكم في البث المباشر</h1>
-        <p>نحن سعداء بزيارتكم، استمتعوا بتجربة فريدة.</p>
-    </div>
-
     <div class="button-container">
         <button class="circle-button" id="homeButton" style="background-color: #E3651D;">
             <i class="fas fa-home"></i>
