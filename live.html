@@ -888,50 +888,68 @@ if(e)
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 <script>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // لم يعد هناك حاجة لتعريف اللودر وشاشة الترحيب
-        // const loader = document.getElementById('loader');
-        // const welcomeScreen = document.getElementById('welcomeScreen');
-        const homeButton = document.getElementById('homeButton');
-        const liveButton = document.getElementById('liveButton');
-        const tvButton = document.getElementById('tvButton');
-        const colorButton = document.getElementById('colorButton');
-        const colorPicker = document.getElementById('colorPicker');
-        const colorOptions = document.querySelectorAll('.color-option');
+        document.addEventListener('DOMContentLoaded', () => {
+            const welcomeScreen = document.getElementById('welcomeScreen');
+            const homeButton = document.getElementById('homeButton');
+            const liveButton = document.getElementById('liveButton');
+            const tvButton = document.getElementById('tvButton');
+            const colorButton = document.getElementById('colorButton');
+            const colorPicker = document.getElementById('colorPicker');
+            const colorOptions = document.querySelectorAll('.color-option');
 
-        // لم يعد هناك حاجة لتأخير عرض الأزرار
-        const buttons = [homeButton, liveButton, tvButton, colorButton];
-        buttons.forEach(button => {
-            button.classList.remove('hidden');
-            button.classList.add('visible');
-        });
+            // إخفاء شاشة الترحيب بعد 3 ثوانٍ
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+            }, 3000);
 
-        // إضافة استماع للنقر على الأزرار
-        homeButton.addEventListener('click', () => {
-            window.location.href = 'mobasher.html#';
-        });
+            const buttons = [homeButton, liveButton, tvButton, colorButton];
+            let index = 0;
 
-        liveButton.addEventListener('click', () => {
-            window.location.href = 'tv.html';
-        });
+            const showButtonWithTooltip = () => {
+                if (index < buttons.length) {
+                    const button = buttons[index];
+                    button.classList.add('enlarge');
+                    const tooltip = button.querySelector('.tooltip');
+                    tooltip.style.opacity = '1';
 
-        tvButton.addEventListener('click', () => {
-            window.location.href = 'login';
-        });
+                    setTimeout(() => {
+                        button.classList.remove('enlarge');
+                        tooltip.style.opacity = '0';
+                        index++;
+                        showButtonWithTooltip();
+                    }, 2000);
+                }
+            };
 
-        colorButton.addEventListener('click', () => {
-            colorPicker.classList.toggle('hidden');
-        });
+            // بدء عرض الأزرار مع الشرح
+            setTimeout(showButtonWithTooltip, 3500);
 
-        colorOptions.forEach(option => {
-            option.addEventListener('click', (e) => {
-                const color = e.target.dataset.color;
-                document.querySelector('meta[name="theme-color"]').setAttribute('content', color);
-                document.body.style.backgroundColor = color;
-                colorPicker.classList.add('hidden');
+            // إضافة استماع للنقر على الأزرار
+            homeButton.addEventListener('click', () => {
+                window.location.href = 'mobasher.html#';
+            });
+
+            liveButton.addEventListener('click', () => {
+                window.location.href = 'tv.html';
+            });
+
+            tvButton.addEventListener('click', () => {
+                window.location.href = 'login';
+            });
+
+            colorButton.addEventListener('click', () => {
+                colorPicker.classList.toggle('hidden');
+            });
+
+            colorOptions.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    const color = e.target.dataset.color;
+                    document.querySelector('meta[name="theme-color"]').setAttribute('content', color);
+                    document.body.style.backgroundColor = color;
+                    colorPicker.classList.add('hidden');
+                });
             });
         });
-    });
 </script>
 <footer style="background-color: #1d242e; color: #fff; padding: 20px 0;">
     <style>
