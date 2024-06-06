@@ -19,6 +19,7 @@
             overflow: hidden;
             transition: transform 0.6s ease-in-out;
             transform: translateY(100%);
+            z-index: 9999;
         }
         .popup-header {
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -99,8 +100,6 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    ```
-    ```html
     <div class="popup" id="liveStreamPopup">
         <div class="popup-header">
             <i class="fas fa-video"></i> بث مباشر
@@ -112,8 +111,6 @@
         </div>
         <a href="mobasher.html" class="popup-button">مشاهدة البث المباشر</a>
     </div>
-    ```
-    ```js
     <script>
         window.onload = function() {
             document.getElementById('liveStreamPopup').classList.add('show-popup');
