@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إعداد صفحة البث المباشر لشبكات المايكروتك</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>إعداد صفحة البث المباشر لشبكات المايكروتك</h1>
+    </div>
+
+    <div class="content container mt-4">
+        <h2>البث المباشر</h2>
+        <p>لمشاهدة ومعاينة صفحة البث من هنا <a class="btn-custom" href="https://goody-code.github.io/Hotspot/mobasher.html">مشاهدة</a>.</p>
+
+        <h3>خطوات الإعداد</h3>
+        <ol>
+            <li>
+                <h4>تحميل الملف</h4>
+                <p>قم بتحميل الملف <code>mobasher.html</code> من <a class="btn-custom" href="https://github.com/Goody-Code/Hotspot/archive/refs/heads/main.zip">هذا الرابط</a>.</p>
+            </li>
+            <li>
+                <h4>نقل الملف إلى مجلد صفحة الهوتسبوت</h4>
+                <p>انسخ الملف <code>mobasher.html</code> إلى المجلد الذي يحتوي على ملفات صفحة الهوتسبوت في جهاز المايكروتك الخاص بك.</p>
+                <img src="https://i.postimg.cc/xTTk352Z/Screenshot-My-Files.jpg" alt="نسخ الملف إلى مجلد الصفحة" class="img-fluid">
+            </li>
+            <li>
+                <h4>تعديل ملف <code>config.js</code></h4>
+                <p>افتح ملف <code>config.js</code> الموجود في مجلد صفحة الهوتسبوت باستخدام أي محرر نصوص.</p>
+                <img src="https://i.postimg.cc/Gtb2s7F4/Screenshot-My-Files.jpg" alt="فتح ملف config.js" class="img-fluid">
+                <p>ابحث عن القيمة <code>"redirect-to-mobasher"</code> وقم بتعديلها لتصبح كما يلي:</p>
+                <pre><code class="language-json">{
+  "redirect-to-mobasher": "mobasher.html"
+}</code></pre>
+                <img src="https://i.postimg.cc/yd4W7YWX/IMG-20240606-WA0065.jpg" alt="ملف config.js المعدل" class="img-fluid">
+                <p>بعد ذلك سيظهر زر الدخول إلى البث في الصفحة كما في الصورة:</p>
+                <img src="https://i.postimg.cc/Gh7vnmGb/Screenshot-Chrome.jpg" alt="زر البث" class="img-fluid">
+            </li>
+         </ol>
+
+        <h3>لأصحاب الشبكات الذين ليس لديهم ملف <code>config.js</code></h3>
+        <p>إذا لم يكن لديك ملف <code>config.js</code>، يمكنك إضافة نافذة منبثقة لعرض البث المباشر في صفحتك عن طريق تعديل ملف <code>status.html</code> كما يلي:</p>
+        <ol>
+            <li>
+                <h4>تحميل الكود</h4>
+                <p>حمل الكود من هنا <a class="btn-custom" href="https://raw.githubusercontent.com/Goody-Code/live/main/mobasher-pop.html">تحميل</a>.</p>
+            </li>
+            <li>
+                <h4>فتح ملف <code>status.html</code> أو <code>index.html</code></h4>
+                <p>ابحث عن ملف <code>status.html</code> أو إذا لم تجده ابحث عن ملف <code>index.html</code> في مجلد صفحة الهوتسبوت.</p>
+                <p>افتح الملف باستخدام أي محرر نصوص.</p>
+            </li>
+            <li>
+                <h4>إضافة كود نافذة زر البث المباشر</h4>
+                <p>أضف الكود الذي قمت بنسخه في نهاية كود الصفحة:</p>
+                <img src="https://i.postimg.cc/vThNZNft/Screenshot-Chrome.jpg" alt="نافذة لدخول البث" class="img-fluid">
+            </li>
+        </ol>
+
+        <h3>شكر وتقدير</h3>
+        <p>تم تطوير هذا المشروع من قبل المهندس والمطور خالد الغيلي، الذي يقدم هذا الحل لأصحاب الشبكات بكل فخر وتفاني. نقدم له ألف شكر وتحية على مساهمته وجهوده.</p>
+
+        <h3>صورة توضيحية للبث المباشر</h3>
+        <img src="https://i.postimg.cc/d1rh7qhZ/Screenshot-Chrome.jpg" alt="البث المباشر" class="img-fluid">
+        <img src="https://i.postimg.cc/13NPmv38/chrome-GMT-03-00.png" alt="البث المباشر" class="img-fluid">
+        <img src="https://i.postimg.cc/wvGf1Z8V/Screenshot-Chrome.jpg" alt="البث المباشر" class="img-fluid">
+
+        <h3>ملاحظات</h3>
+        <ul>
+            <li>تأكد من صحة المسارات والأسماء عند نقل وتعديل الملفات.</li>
+            <li>يُفضل أخذ نسخة احتياطية من ملفاتك الحالية قبل إجراء أي تعديلات.</li>
+        </ul>
+
+        <h3>خاتمة</h3>
+        <p>يهدف هذا الشرح إلى تسهيل عملية إعداد صفحة البث المباشر لشبكات المايكروتك بوضوح ودقة. نتمنى أن تجد هذه الإرشادات مفيدة وتساهم في تحسين تجربتك. إذا كان لديك أي استفسارات أو تحتاج إلى مساعدة إضافية، فلا تتردد في التواصل معنا.</p>
+
+        <h2>هدف المشروع</h2>
+        <p>هدف مشروعنا هو تقديم حلاً شاملاً لأصحاب الشبكات، يتيح لهم إضافة صفحة بث مباشر لمختلف القنوات، بما في ذلك الرياضية، الإخبارية، والترفيهية. نسعى من خلال ذلك إلى توفير تجربة مشاهدة مميزة ومتنوعة للمستخدمين، وتوفير الراحة والسهولة في الوصول إلى محتوى البث المباشر.</p>
+
+        <h2>الرخصة</h2>
+        <p>هذا المشروع مرخص بموجب ترخيص MIT.</p>
+
+        <h3>روابط التحميل</h3>
+        <ul>
+            <li><a class="btn-custom" href="https://github.com/Goody-Code/Hotspot/archive/refs/heads/main.zip">تحميل ملفات البث</a></li>
+            <li><a class="btn-custom" href="https://raw.githubusercontent.com/Goody-Code/live/main/mobasher-pop.html">تحميل ملف كود نافذة عرض زر البث في الصفحة</a></li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 جميع الحقوق محفوظة. تم تطوير هذا المشروع من قبل المهندس والمطور خالد الغيلي.</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
