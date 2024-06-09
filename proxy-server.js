@@ -15,5 +15,5 @@ app.use('/proxy', createProxyMiddleware({
 // بدء الخادم على المنفذ 3000
 const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`Proxy server is running on http://localhost:${PORT}`);
+    console.log(`Proxy server is running on https://live-wppi.onrender.com/`);
 });
