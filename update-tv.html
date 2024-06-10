@@ -154,7 +154,7 @@
             position: absolute;
             z-index: 120;
             margin: 5%;
-            top: 400px;
+            top: 380px;
             width: 94%;
             height: 50px;
         }
@@ -176,7 +176,7 @@
 	.button-containerapp {
             position: fixed;
             left: 20px;
-            top: 65%;
+            top: 85%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
@@ -224,6 +224,25 @@
 
         .hidden {
             display: none;
+	}
+
+	.info-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            z-index: -1;
+            left: 10%;
+            top: 420px;
+            width: 300px;
+            height: 90px;
+            background-color: #1d242e;
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 5px;
+            font-size: 14px;
+            border: 2px solid #007bff;
 	}
         
         
@@ -297,6 +316,12 @@
 	<div class="color-option" style="background-color: #49243E;" data-color="#49243E"></div>
         <!-- أضف المزيد من الألوان حسب الحاجة -->
     </div>
+    <div class="controls">
+    <button id="fullScreenButton" class="control-button"><i class="fas fa-expand"></i></button>
+    </div>
+    <div class="info-container">
+            <p>هذا المشغل يحتوي على جميع قنوات بين سبورت الرياضية المشفرة. يمكنك التنقل بين القنوات باستخدام الأزرار أدناه.</p>
+    </div>
 <div style="align=center; padding-top: 830px;">
 <footer style="background-color: #1d242e; color: #fff; padding: 20px 0; width: 700px;">
     <style>
@@ -352,6 +377,23 @@
 </div>
 </body>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const frame = document.getElementById('fram');
+
+        frame.contentWindow.document.addEventListener('click', function(event) {
+            event.preventDefault(); // منع فتح الروابط
+            event.stopPropagation(); // منع انتشار الحدث إلى العناصر الأخرى
+            return false;
+        });
+
+        frame.contentWindow.document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // منع فتح قائمة السياق
+            event.stopPropagation(); // منع انتشار الحدث إلى العناصر الأخرى
+            return false;
+        });
+    });
+</script>
+<script>
         document.addEventListener('DOMContentLoaded', () => {
             const homeButton = document.getElementById('homeButton');
             const liveButton = document.getElementById('liveButton');
@@ -383,6 +425,21 @@
                 });
             });
         });
+</script>
+<script>
+    var player = document.getElementById('fram');
+
+    function toggleFullScreen() {
+        if (player.requestFullscreen) {
+            player.requestFullscreen();
+        } else if (player.mozRequestFullScreen) { /* Firefox */
+            player.mozRequestFullScreen();
+        } else if (player.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            player.webkitRequestFullscreen();
+        } else if (player.msRequestFullscreen) { /* IE/Edge */
+            player.msRequestFullscreen();
+        }
+    }
 </script>
 <script>
 // سكريبت لإخفاء اللودر بعد تحميل الصفحة
