@@ -427,19 +427,28 @@
         });
 </script>
 <script>
+    // تحديد المشغل
     var player = document.getElementById('fram');
 
+    // وظيفة التحكم في تشغيل وإيقاف التشغيل
+    
+
+    // وظيفة التحكم في تكبير الشاشة
     function toggleFullScreen() {
         if (player.requestFullscreen) {
             player.requestFullscreen();
-        } else if (player.mozRequestFullScreen) { /* Firefox */
+        } else if (player.mozRequestFullScreen) {
             player.mozRequestFullScreen();
-        } else if (player.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        } else if (player.webkitRequestFullscreen) {
             player.webkitRequestFullscreen();
-        } else if (player.msRequestFullscreen) { /* IE/Edge */
+        } else if (player.msRequestFullscreen) {
             player.msRequestFullscreen();
         }
     }
+
+    // ربط الوظائف بالأزرار عن طريق الاستماع للنقر
+    
+    document.getElementById('fullScreenButton').addEventListener('click', toggleFullScreen);
 </script>
 <script>
 // سكريبت لإخفاء اللودر بعد تحميل الصفحة
