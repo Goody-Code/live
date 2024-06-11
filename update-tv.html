@@ -42,38 +42,74 @@
   }
   
 
-.loader {
-  width: 100px;
-  display: grid;
-  background: radial-gradient(farthest-side, #fff 98%, #0000) center/30px 100%
-    no-repeat;
-  --mask: 
-    radial-gradient(12px at left 15px top 50%, #0000 95%, #000),
-    radial-gradient(12px at center, #0000 95%, #000),
-    radial-gradient(12px at right 15px top 50%, #0000 95%, #000);
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
-  -webkit-mask-composite: source-in;
-          mask-composite: intersect;
-  animation: l2 1s infinite alternate;
-}
-.loader:before,
-.loader:after {
-  content: "";
-  grid-area: 1/1;
-  height: 30px;
-  aspect-ratio: 1;
-  background: #fff;
-  border-radius: 50%;
-}
-.loader:after {
-  margin-left: auto;
-}
-@keyframes l2 {
-  to {
-    width: 50px;
-  }
-}
+#loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #bc1644;
+        }
+
+        #loader img {
+            width: 300px;
+            height: auto;
+        }
+
+        #network-name {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        #engineer {
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        #content {
+            display: none;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .loader-loop {
+            width: 100px;
+            display: grid;
+            margin-top:30px;
+            background: radial-gradient(farthest-side, #fff 98%, #0000) center/30px 100% no-repeat;
+            --mask: 
+                radial-gradient(12px at left 15px top 50%, #0000 95%, #000),
+                radial-gradient(12px at center, #0000 95%, #000),
+                radial-gradient(12px at right 15px top 50%, #0000 95%, #000);
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
+            -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+            animation: l2 1s infinite alternate;
+        }
+
+        .loader-loop:before,
+        .loader-loop:after {
+            content: "";
+            grid-area: 1/1;
+            height: 30px;
+            aspect-ratio: 1;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .loader-loop:after {
+            margin-left: auto;
+        }
+
+        @keyframes l2 {
+            to {
+                width: 50px;
+            }
+	}
     	
     
   body {
@@ -255,7 +291,15 @@
     </style>
 </head>
 <body translate="no">
-	
+  <div id="page-content">
+    <div id="loader">
+        <img src="https://i.postimg.cc/qvZR4v9D/Mobasher.png" alt="Logo">
+        <div id="network-name"><strong>البث المباشـر</strong></div>
+        <div id="engineer"><strong>!تابع كل شيء مباشرة</strong></div>
+        <div id="engineer"><strong>تجربة فريدة على شبكتنا اللاسلكية</strong></div>
+        <div id="engineer">تصميم المهندس | خالد الغيلي</div>
+        <div class="loader-loop"></div>
+    </div>
     <div class="iframe-wrapper">
         <iframe id="fram" title="شاهد قناة بي ان سبورت 1 بث مباشر - beIN Sports 1 live"
                 src="https://www.aflam4you.net/zremb472.php?vid=68&amp;aflam_s=1&amp;aflam_w=5675&amp;aflam_h=556755&amp;aflam_k=1111111333"
@@ -271,8 +315,7 @@
             }
         });
     </script>
-
-    <div id="page-content">
+    
     <div class="button-container">
         <script>
             var vid = 0;
