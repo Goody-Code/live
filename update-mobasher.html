@@ -78,7 +78,7 @@
 <div style="position: fixed;   top: 10px; width: 100%;  z-index: 1;"><center>
 <video id="my-video" class="video-js vjs-default-skin vjs-fluid" controls preload="none"
   width="600" height="338" poster="https://i.im.ge/2024/04/27/ZjME4M..png" data-setup="{}">
-    <source src="https://rashednet1.files.wordpress.com/2022/12/wp-1672389320810.mp4" type='application/x-mpegURL'>
+    <source src="https://github.com/Goody-Code/live/raw/main/%E2%80%AAMovie-mobasher.mp4" type='application/x-mpegURL'>
    
     <p class="vjs-no-js">
       تصميم المهندس خالد الغيلي
@@ -118,7 +118,7 @@
         }
 
         updateVideoSource();
-        setInterval(updateVideoSource, 60000); // Check for updates every 60 seconds
+        setInterval(updateVideoSource, 86400000); // Check for updates every 60 seconds
 
         $(function() {
             $("#playlist li").on("click", function() {
@@ -150,7 +150,7 @@
 </div>
 <h4 style="text-align: center; color: #fff;"> القنوات</h4>
 <div class="channel">
-    <a href="tv.html">
+    <a href="update-tv.html">
         <img src="https://i.postimg.cc/7ZZvPg6v/image.jpg" alt="قنوات بين سبورت الرياضية Bein Sport HD">
     </a>
 </div>
@@ -941,7 +941,6 @@ if(e)
 	e.setAttribute('unselectable',on);
 }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const loader = document.getElementById('loader');
@@ -953,21 +952,26 @@ if(e)
         const colorPicker = document.getElementById('colorPicker');
         const colorOptions = document.querySelectorAll('.color-option');
 
-        let hasWelcomeScreenShown = false;
+        // الحصول على التاريخ الحالي في صيغة YYYY-MM-DD
+        const today = new Date().toISOString().split('T')[0];
+        const lastVisitDate = localStorage.getItem('lastVisitDate');
 
-        // إخفاء شاشة التحميل بعد 3 ثوانٍ
-        setTimeout(() => {
-            loader.style.display = 'none';
-            welcomeScreen.classList.remove('hidden');
+        // التحقق مما إذا كانت شاشة الترحيب قد ظهرت بالفعل في اليوم الحالي
+        if (lastVisitDate !== today) {
+            // تخزين التاريخ الحالي كآخر زيارة
+            localStorage.setItem('lastVisitDate', today);
+
+            // إظهار شاشة التحميل وشاشة الترحيب
             setTimeout(() => {
-                welcomeScreen.classList.add('show');
-            }, 100); // تأخير بسيط لضمان تطبيق الانتقال
-        }, 3000); // 3 ثواني
+                loader.style.display = 'none';
+                welcomeScreen.classList.remove('hidden');
+                setTimeout(() => {
+                    welcomeScreen.classList.add('show');
+                }, 100); // تأخير بسيط لضمان تطبيق الانتقال
+            }, 3000); // 3 ثواني
 
-        // إخفاء شاشة الترحيب بعد 3 ثوانٍ من ظهورها
-        setTimeout(() => {
-            if (!hasWelcomeScreenShown) {
-                hasWelcomeScreenShown = true;
+            // إخفاء شاشة الترحيب بعد 3 ثوانٍ من ظهورها
+            setTimeout(() => {
                 welcomeScreen.classList.remove('show');
                 setTimeout(() => {
                     welcomeScreen.style.display = 'none';
@@ -994,8 +998,11 @@ if(e)
 
                     setTimeout(showButtonWithTooltip, 500); // تأخير بسيط لضمان ظهور الأزرار بسلاسة
                 }, 1000); // تأخير لإخفاء شاشة الترحيب بالكامل
-            }
-        }, 6000); // بعد 6 ثواني من تحميل الصفحة
+            }, 6000); // بعد 6 ثواني من تحميل الصفحة
+        } else {
+            // إذا كانت شاشة الترحيب قد ظهرت بالفعل اليوم، إخفاء شاشة التحميل فوراً
+            loader.style.display = 'none';
+        }
 
         // إضافة استماع للنقر على الأزرار
         homeButton.addEventListener('click', () => {
@@ -1003,7 +1010,7 @@ if(e)
         });
 
         liveButton.addEventListener('click', () => {
-            window.location.href = 'tv.html';
+            window.location.href = 'update-tv.html';
         });
 
         tvButton.addEventListener('click', () => {
@@ -1023,7 +1030,7 @@ if(e)
             });
         });
     });
-		</script>
+</script>
 <footer style="background-color: #1d242e; color: #fff; padding: 20px 0;">
     <style>
         .footer-content {
@@ -1078,4 +1085,4 @@ window.addEventListener('load', function() {
   // إظهار محتوى الصفحة بعد تحميلها
   pageContent.style.display = 'block';
 });
-  </script>
+	</script>
