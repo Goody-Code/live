@@ -502,8 +502,24 @@ window.addEventListener('load', function() {
 </script>
 <script>
         document.getElementById('fullScreenButton').addEventListener('click', () => {
-            window.parent.postMessage('requestFullscreen', 'https://goody-code.github.io');
+            window.parent.postMessage('requestFullscreen', '*'); // السماح لأي أصل
         });
-</script>
+
+        window.addEventListener('message', (event) => {
+            if (event.data === 'requestFullscreen') {
+                // تكبير العنصر المحدد بالـ id 'fullScreenButton' هنا
+                const fullScreenButton = document.getElementById('fullScreenButton');
+                if (fullScreenButton.requestFullscreen) {
+                    fullScreenButton.requestFullscreen();
+                } else if (fullScreenButton.mozRequestFullScreen) { // Firefox
+                    fullScreenButton.mozRequestFullScreen();
+                } else if (fullScreenButton.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    fullScreenButton.webkitRequestFullscreen();
+                } else if (fullScreenButton.msRequestFullscreen) { // IE/Edge
+                    fullScreenButton.msRequestFullscreen();
+                }
+            }
+        });
+    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </html>
