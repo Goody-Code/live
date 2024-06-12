@@ -1002,7 +1002,7 @@ if(e)
         });
 
         liveButton.addEventListener('click', () => {
-            window.location.href = 'tv.html';
+            window.location.href = 'openSubpage';
         });
 
         tvButton.addEventListener('click', () => {
@@ -1066,6 +1066,30 @@ if(e)
     </div>
 </footer>
 </div>
+<script>
+        // تعيين دالة لفتح الصفحة الفرعية لعرض المشغل
+        function openSubpage() {
+            window.location.href = "update-tv.html";
+        }
+
+        // دالة لتفعيل زر التكبير في الصفحة الفرعية
+        function enableFullscreenButton() {
+            var iframe = document.getElementById('content'); // استبدال 'content' بالـ id الخاص بالإطار
+            iframe.contentWindow.postMessage('enableFullscreenButton', '*');
+        }
+
+        // استقبال الرسائل من الصفحة الفرعية
+        window.addEventListener('message', function(event) {
+            if (event.origin !== 'https://goody-code.github.io/live/update-tv.html') return; // تأكد من أن الرسائل تأتي من الصفحة الفرعية الصحيحة
+
+            if (event.data === 'fullscreenButtonEnabled') {
+                // تفعيل زر التكبير على الصفحة الرئيسية
+                document.getElementById('fullscreenButton').disabled = false;
+            }
+        });
+    </script>
+	 <button id="fullscreenButton" onclick="requestFullscreen()" disabled>تكبير الشاشة</button>
+    <iframe id="content" src="https://goody-code.github.io/live/update-mobasher.html"></iframe>
 <script>
 // سكريبت لإخفاء اللودر بعد تحميل الصفحة
 window.addEventListener('load', function() {
