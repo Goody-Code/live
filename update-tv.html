@@ -508,7 +508,7 @@ window.addEventListener('load', function() {
         window.addEventListener('message', (event) => {
             if (event.data === 'requestFullscreen') {
                 // تكبير العنصر المحدد بالـ id 'fullScreenButton' هنا
-                const fullScreenButton = document.getElementById('fullScreenButton');
+                const fullScreenButton = document.getElementById('fram');
                 if (fullScreenButton.requestFullscreen) {
                     fullScreenButton.requestFullscreen();
                 } else if (fullScreenButton.mozRequestFullScreen) { // Firefox
