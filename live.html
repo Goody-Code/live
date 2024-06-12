@@ -952,26 +952,21 @@ if(e)
         const colorPicker = document.getElementById('colorPicker');
         const colorOptions = document.querySelectorAll('.color-option');
 
-        // الحصول على التاريخ الحالي في صيغة YYYY-MM-DD
-        const today = new Date().toISOString().split('T')[0];
-        const lastVisitDate = localStorage.getItem('lastVisitDate');
+        let hasWelcomeScreenShown = false;
 
-        // التحقق مما إذا كانت شاشة الترحيب قد ظهرت بالفعل في اليوم الحالي
-        if (lastVisitDate !== today) {
-            // تخزين التاريخ الحالي كآخر زيارة
-            localStorage.setItem('lastVisitDate', today);
-
-            // إظهار شاشة التحميل وشاشة الترحيب
+        // إخفاء شاشة التحميل بعد 3 ثوانٍ
+        setTimeout(() => {
+            loader.style.display = 'none';
+            welcomeScreen.classList.remove('hidden');
             setTimeout(() => {
-                loader.style.display = 'none';
-                welcomeScreen.classList.remove('hidden');
-                setTimeout(() => {
-                    welcomeScreen.classList.add('show');
-                }, 100); // تأخير بسيط لضمان تطبيق الانتقال
-            }, 3000); // 3 ثواني
+                welcomeScreen.classList.add('show');
+            }, 100); // تأخير بسيط لضمان تطبيق الانتقال
+        }, 3000); // 3 ثواني
 
-            // إخفاء شاشة الترحيب بعد 3 ثوانٍ من ظهورها
-            setTimeout(() => {
+        // إخفاء شاشة الترحيب بعد 3 ثوانٍ من ظهورها
+        setTimeout(() => {
+            if (!hasWelcomeScreenShown) {
+                hasWelcomeScreenShown = true;
                 welcomeScreen.classList.remove('show');
                 setTimeout(() => {
                     welcomeScreen.style.display = 'none';
@@ -998,11 +993,8 @@ if(e)
 
                     setTimeout(showButtonWithTooltip, 500); // تأخير بسيط لضمان ظهور الأزرار بسلاسة
                 }, 1000); // تأخير لإخفاء شاشة الترحيب بالكامل
-            }, 6000); // بعد 6 ثواني من تحميل الصفحة
-        } else {
-            // إذا كانت شاشة الترحيب قد ظهرت بالفعل اليوم، إخفاء شاشة التحميل فوراً
-            loader.style.display = 'none';
-        }
+            }
+        }, 6000); // بعد 6 ثواني من تحميل الصفحة
 
         // إضافة استماع للنقر على الأزرار
         homeButton.addEventListener('click', () => {
@@ -1010,7 +1002,7 @@ if(e)
         });
 
         liveButton.addEventListener('click', () => {
-            window.location.href = 'update-tv.html';
+            window.location.href = 'tv.html';
         });
 
         tvButton.addEventListener('click', () => {
