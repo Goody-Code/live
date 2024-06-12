@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0'>
     <meta name="theme-color" content="#bc1644">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' *;">
+    <meta http-equiv="X-Frame-Options" content="ALLOW-FROM *">
     <meta property="og:title" content="البث المباشر - تصميم المهندس خالد الغيلي">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
@@ -501,25 +503,20 @@ window.addEventListener('load', function() {
 });
 </script>
 <script>
-        document.getElementById('fullScreenButton').addEventListener('click', () => {
-            requestFullscreen();
-        });
-
-        function requestFullscreen() {
-            const videoPlayer = document.getElementById('fram');
-            if (videoPlayer.requestFullscreen) {
-                videoPlayer.requestFullscreen();
-            } else if (videoPlayer.mozRequestFullScreen) { // Firefox
-                videoPlayer.mozRequestFullScreen();
-            } else if (videoPlayer.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                videoPlayer.webkitRequestFullscreen();
-            } else if (videoPlayer.msRequestFullscreen) { // IE/Edge
-                videoPlayer.msRequestFullscreen();
+        document.getElementById('fullScreenButton').addEventListener('click', function() {
+            // كود تكبير الشاشة
+            const player = document.getElementById('fram');
+            if (player.requestFullscreen) {
+                player.requestFullscreen();
+            } else if (player.mozRequestFullScreen) { // Firefox
+                player.mozRequestFullScreen();
+            } else if (player.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                player.webkitRequestFullscreen();
+            } else if (player.msRequestFullscreen) { // IE/Edge
+                player.msRequestFullscreen();
             }
-        }
-
-        // السماح بتفعيل زر التكبير في الصفحة الرئيسية
-        window.parent.postMessage('fullscreenButtonEnabled', '*');
+            console.log('تكبير الشاشة');
+        });
     </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </html>
