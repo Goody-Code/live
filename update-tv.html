@@ -502,24 +502,24 @@ window.addEventListener('load', function() {
 </script>
 <script>
         document.getElementById('fullScreenButton').addEventListener('click', () => {
-            window.parent.postMessage('requestFullscreen', '*'); // السماح لأي أصل
+            requestFullscreen();
         });
 
-        window.addEventListener('message', (event) => {
-            if (event.data === 'requestFullscreen') {
-                // تكبير العنصر المحدد بالـ id 'fullScreenButton' هنا
-                const fullScreenButton = document.getElementById('fram');
-                if (fullScreenButton.requestFullscreen) {
-                    fullScreenButton.requestFullscreen();
-                } else if (fullScreenButton.mozRequestFullScreen) { // Firefox
-                    fullScreenButton.mozRequestFullScreen();
-                } else if (fullScreenButton.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                    fullScreenButton.webkitRequestFullscreen();
-                } else if (fullScreenButton.msRequestFullscreen) { // IE/Edge
-                    fullScreenButton.msRequestFullscreen();
-                }
+        function requestFullscreen() {
+            const videoPlayer = document.getElementById('fram');
+            if (videoPlayer.requestFullscreen) {
+                videoPlayer.requestFullscreen();
+            } else if (videoPlayer.mozRequestFullScreen) { // Firefox
+                videoPlayer.mozRequestFullScreen();
+            } else if (videoPlayer.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                videoPlayer.webkitRequestFullscreen();
+            } else if (videoPlayer.msRequestFullscreen) { // IE/Edge
+                videoPlayer.msRequestFullscreen();
             }
-        });
+        }
+
+        // السماح بتفعيل زر التكبير في الصفحة الرئيسية
+        window.parent.postMessage('fullscreenButtonEnabled', '*');
     </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </html>
