@@ -1082,43 +1082,4 @@ window.addEventListener('load', function() {
   pageContent.style.display = 'block';
 });
 	</script>
-	 <script>
-        // منع التحديث التلقائي للصفحة
-        (function() {
-            // تعطيل النماذج من إعادة تحميل الصفحة
-            document.addEventListener('submit', function(event) {
-                event.preventDefault();
-            }, true);
-
-            
-
-            // تعطيل عمليات التحديث المقررة باستخدام setTimeout و setInterval
-            const originalSetTimeout = window.setTimeout;
-            const originalSetInterval = window.setInterval;
-
-            window.setTimeout = function(callback, delay) {
-                console.warn('تم منع setTimeout من إعادة تحميل الصفحة.');
-            }
-
-            window.setInterval = function(callback, interval) {
-                console.warn('تم منع setInterval من إعادة تحميل الصفحة.');
-            }
-
-            // تعطيل عمليات التحديث عبر تاريخ المتصفح
-            window.onbeforeunload = function(event) {
-                event.preventDefault();
-                return '';
-            };
-
-            // تعطيل التحديث التلقائي في حالة وجود محتوى ديناميكي (AJAX, WebSocket)
-            const originalXHRSend = XMLHttpRequest.prototype.send;
-            XMLHttpRequest.prototype.send = function() {
-                console.warn('تم منع XMLHttpRequest من إعادة تحميل الصفحة.');
-            };
-
-            const originalWebSocketSend = WebSocket.prototype.send;
-            WebSocket.prototype.send = function() {
-                console.warn('تم منع WebSocket من إعادة تحميل الصفحة.');
-            };
-        })();
-	 </script>
+	 
