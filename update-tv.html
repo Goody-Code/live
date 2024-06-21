@@ -327,26 +327,39 @@
     <i class="fa fa-tv" style="margin-bottom: 5px;"></i> <!-- تم إضافة هذا السطر لتعديل المسافة بين الأيقونة والنص -->
     <span style="display: block;">عرض جميع القنوات</span> <!-- تم تغيير النص إلى عنصر نصي منفصل -->
 </button>
-	<button class="button app-submit price-icon" style="font-size: small; height: 50px; width: 140px; margin-right: 25%;" onclick="redirectToMikroTikPage();"><i class="fa fa-info-circle"></i> صفحة المعلومات</button>
+	<button class="button app-submit price-icon" style="font-size: small; height: 50px; width: 140px; margin-right: 25%;" id="tvButton"><i class="fa fa-info-circle"></i> صفحة المعلومات</button>
 
 <script>
-function redirectToMikroTikPage() {
-    // هنا يمكنك استخدام AJAX أو fetch API لإرسال طلب إلى ملف PHP الخاص بك
-    fetch('script.php')
-        .then(response => {
-            if (response.ok) {
-                return response.text();
+document.getElementById('tvButton').addEventListener('click', function() {
+    // قائمة بالأيبيهات المعروفة لشبكات MikroTik
+    var known_ips = [
+        '172.16.0.1',
+        '10.0.0.1',
+        '1.1.1.1',
+        '4.4.4.4',
+        '0.0.0.0'
+    ];
+
+    // تكرار عبر الأيبيهات المعروفة
+    known_ips.forEach(function(ip) {
+        // استخدام XMLHttpRequest للتحقق من الاتصال بالأيبي
+        var xhr = new XMLHttpRequest();
+        var url = 'http://' + ip + '/login'; // تكوين URL للاتصال بالأيبي
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // إذا كان الرد ناجحًا، قم بإعادة التوجيه إلى صفحة الهوتسبوت
+                    window.location.href = url;
+                }
             }
-            throw new Error('Network response was not ok.');
-        })
-        .then(data => {
-            // قد يكون من المناسب عرض رسالة تأكيد أو تحديث الواجهة بناءً على الرد من الخادم
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
-        });
-}
+        };
+
+        xhr.open('GET', url, true);
+        xhr.timeout = 5000; // زمن الانتظار للرد، يمكنك ضبطه حسب احتياجاتك
+        xhr.send();
+    });
+});
 </script>
     </div>
     <div class="button-containerapp">
