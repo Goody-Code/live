@@ -5,6 +5,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="theme-color" content="#bc1644">
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' *;">
 <meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
 <meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
 <meta property="og:title" content="البث المباشر - تصميم المهندس خالد الغيلي">
@@ -65,55 +66,7 @@
   <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet"></link>
   <script src="https://unpkg.com/video.js/dist/video.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  
-<head>
-<div id="page-content">
-
-<div style="position: fixed;   top: 10px; width: 100%;  z-index: 1;"><center>
-<video id="my-video" class="video-js vjs-default-skin vjs-fluid" controls preload="none"
-  width="600" height="338" poster="https://i.im.ge/2024/04/27/ZjME4M..png" data-setup="{}">
-    <source src="https://rashednet1.files.wordpress.com/2022/12/wp-1672389320810.mp4" type='application/x-mpegURL'>
-   
-    <p class="vjs-no-js">
-      تصميم المهندس خالد الغيلي
-      <li  data-url=="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-    </p>
-  </video>
- </div>
-</body>
-</html>
-    <ul id="playlist">
-
-<script>
-        async function updateVideoSource() {
-            try {
-                const response = await fetch('https://corsproxy.io/?https://www.masirahtv.net/live.php');
-                const text = await response.text();
-                const videoUrlMatch = text.match(/myPlayer\.src\("([^"]+)"\)/);
-
-                if (videoUrlMatch) {
-                    const videoUrl = videoUrlMatch[1];
-                    const fixedChannel = document.getElementById('fixed-channel');
-                    fixedChannel.setAttribute('data-url', videoUrl);
-
-                    // Adding event listener to the fixed item
-                    $(fixedChannel).on("click", function() {
-                        var player = videojs('my-video');
-                        player.pause();
-                        var new_url = $(this).attr("data-url");
-                        player.src(new_url);
-                        player.load();
-                        player.play();
-                    });
-                }
-            } catch (error) {
-                console.error('Error fetching video source:', error);
-            }
-        }
-
-        updateVideoSource();
-        setInterval(updateVideoSource, 60000); // Check for updates every 60 seconds
-
+  <script>
         $(function() {
             $("#playlist li").on("click", function() {
                 var player = videojs('my-video');
@@ -125,57 +78,54 @@
             });
         });
 </script>
-	<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>صفحة البث الرئيسية</title>
+<head>
+<div id="page-content">
 
-    </head>
-		<body>
-
-<body>
- <ul id="playlist">
-<div style="align=center; padding-top: 60%;">
-<div class="marquee">
-    <span>تنويه:</span>
-    <marquee behavior="scroll" direction="right" scrollamount="8">
-    	مرحبا بك في البث المباشر المجاني! نحن نسعى دائما لتقديم أفضل تجربة مشاهدة لك، ونقدم قنوات جديدة يوميا. إذا واجهت أي مشكلة في تشغيل القناة، يرجى اختيار زر التشغيل المباشر وإذا كان هناك أي تعليق في البث، يرجى اختيار سيرفر آخر. كما يمكنك التواصل معنا على الرقم +967777867376 لإضافة قنوات جديدة أو إصلاح أي عطل فني. شكرًا لثقتك بنا! نتمنى ان تستمتعو باوقاتكم في المشاهده.
-</marquee>
-</div>
-<h4 style="text-align: center; color: #fff;"> القنوات</h4>
-<div class="channel">
-    <a href="tv.html">
-        <img src="https://i.postimg.cc/7ZZvPg6v/image.jpg" alt="قنوات بين سبورت الرياضية Bein Sport HD">
-    </a>
-</div>
-<ul style="list-style-type:none">
-<style>ul{padding-left:0px; text-align:center;}
-li{ display:inline-block;padding:0px;}
-</style>
-
-
-
-<div class="channel2">
-	<li data-url="https://live-hls-web-aja.getaj.net/AJA/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_15-59-24-011.jpg"  border="3px"></li>
-	<li id="fixed-channel" data-url=""><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428429.jpeg" border="3px"></li>
-	<li data-url="https://svs.itworkscdn.net/almasiramubacherlive/almasira.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428529.jpeg"  border="3px"></li>
-
-
-</div>
-
-<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=yemen_shabab"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad984-1.jpeg"  border="3px"></a>
-
-<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=tvaden "><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFqfvXL-SlR2X36yuQnauAOsUcv1MYJL6fPA&s"  border="3px"></a>
-
-<a href="https://www.elahmad.com/tv/youtube.php?id=belqees_tv"><img src="https://cratersky.net/photos/092019/5d78c41bd4349.jpeg"  border="3px"></a>
-
-<li data-url="https://vimeo.com/event/3512822/embed"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428329-1.jpeg"  border="3px"></li>
-
-<li data-url="https://live-hls-web-ajm.getaj.net/AJM/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/10/images281229.jpeg"  border="3px"></li>
-
-<a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=yementv"><img src="https://mj.bald-news.com/wp-content/uploads/2023/07/%D9%82%D9%86%D8%A7%D8%A9-%D8%A7%D9%84%D9%8A%D9%85%D9%86.jpg"  border="3px"></a>
-
-<a href="https://www.aflam4you.net/playeraf.php?vid=14&aflam_s=1&aflam_k=1111222211111"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_16-00-52-761.jpg"  border="3px"></a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div style="position: relative; top: 10px; width: 100%;  z-index: 1;"><center>
+        <video id="my-video" class="video-js vjs-default-skin vjs-fluid" controls preload="none"
+          width="600" height="338" poster="https://i.im.ge/2024/04/27/ZjME4M..png" data-setup="{}">
+          <source src="https://github.com/Goody-Code/live/raw/main/%E2%80%AAMovie-mobasher.mp4" type='application/x-mpegURL'>
+          <p class="vjs-no-js">
+            تصميم المهندس خالد الغيلي
+            <li  data-url=="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+          </p>
+        </video>
+       </div>
+       <div class="marquee" style="margin-top: 20px;">
+        <span>تنويه:</span>
+        <marquee behavior="scroll" direction="right" scrollamount="8">
+          مرحبا بك في البث المباشر المجاني! نحن نسعى دائما لتقديم أفضل تجربة مشاهدة لك، ونقدم قنوات جديدة يوميا. إذا واجهت أي مشكلة في تشغيل القناة، يرجى اختيار زر التشغيل المباشر وإذا كان هناك أي تعليق في البث، يرجى اختيار سيرفر آخر. كما يمكنك التواصل معنا على الرقم +967777867376 لإضافة قنوات جديدة أو إصلاح أي عطل فني. شكرًا لثقتك بنا! نتمنى ان تستمتعو باوقاتكم في المشاهده.
+        </marquee>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+    	
+      <h4 style="text-align: center; color: #fff;"> القنوات</h4>
+      <div class="channel">
+        <a href="update-tv.html">
+          <img src="https://i.postimg.cc/7ZZvPg6v/image.jpg" alt="قنوات بين سبورت الرياضية Bein Sport HD">
+        </a>
+      </div>
+      <ul style="list-style-type:none" id="playlist">
+        <style>ul{padding-left:0px; text-align:center;}
+        li{ display:inline-block;padding:0px;}
+        </style>
+        <div class="channel2">
+          <li data-url="https://live-hls-web-aja.getaj.net/AJA/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_15-59-24-011.jpg"  border="3px"></li>
+          <li id="fixed-channel" data-url=""><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428429.jpeg" border="3px"></li>
+          <li data-url="https://svs.itworkscdn.net/almasiramubacherlive/almasira.smil/playlist.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428529.jpeg"  border="3px"></li>
+        </div>
+        <a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=yemen_shabab"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad984-1.jpeg"  border="3px"></a>
+        <a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=tvaden "><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFqfvXL-SlR2X36yuQnauAOsUcv1MYJL6fPA&s"  border="3px"></a>
+        <a href="https://www.elahmad.com/tv/youtube.php?id=belqees_tv"><img src="https://cratersky.net/photos/092019/5d78c41bd4349.jpeg"  border="3px"></a>
+        <li data-url="https://vimeo.com/event/3512822/embed"><img src="https://rashednet1.files.wordpress.com/2023/06/d8aad986d8b2d98ad98428329-1.jpeg"  border="3px"></li>
+        <li data-url="https://live-hls-web-ajm.getaj.net/AJM/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/10/images281229.jpeg"  border="3px"></li>
+        <a href="https://www.elahmad.com/tv/mobiletv/glarb.php?id=yementv"><img src="https://mj.bald-news.com/wp-content/uploads/2023/07/%D9%82%D9%86%D8%A7%D8%A9-%D8%A7%D9%84%D9%8A%D9%85%D9%86.jpg"  border="3px"></a>
+        <a href="https://www.aflam4you.net/playeraf.php?vid=14&aflam_s=1&aflam_k=1111222211111"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_16-00-52-761.jpg"  border="3px"></a>
 
 <li data-url="https://alarabiya-business-ak.akamaized.net/out/v1/126027fa2f8c4d19be4551b77ec08cbb/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/11/d8aad986d8b2d98ad98428929.png"  border="3px"></li>
 
@@ -204,6 +154,8 @@ li{ display:inline-block;padding:0px;}
 <li data-url="https://ikomg2.mmdlive.lldns.net/ikomg2/107b7df8f5444d778f349100739a09cd/manifest.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/10/d8aad986d8b2d98ad984282429.jpeg"  border="3px"></li>
 
 <li data-url="https://tv-trthaber.medya.trt.com.tr/master.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/10/d8aad986d8b2d98ad98428329.png"  border="3px"></li>
+
+<a href="https://live2.alalam.ir/alalam.m3u8" target="_blank"><img src="https://rashednet1.files.wordpress.com/2024/05/d8aad986d8b2d98ad984286291137210983103011554.jpg"  border="3px"></a>
 
 <a href="https://vo-live.cdb.cdn.orange.com/Content/Channel/AbuDhabiSportsChannel1/HLS/index.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_18-42-20-928.jpg"  border="3px"></a>
 
@@ -441,50 +393,91 @@ li{ display:inline-block;padding:0px;}
 
 
 
- </section> 				
-						         </div>
-						        <br> <hr size="0.7" color="#444">
-						      
-	</div>
-     
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+        async function updateVideoSource() {
+            try {
+                const response = await fetch('https://corsproxy.io/?https://www.masirahtv.net/live.php');
+                const text = await response.text();
+                const videoUrlMatch = text.match(/myPlayer\.src\("([^"]+)"\)/);
+
+                if (videoUrlMatch) {
+                    const videoUrl = videoUrlMatch[1];
+                    const fixedChannel = document.getElementById('fixed-channel');
+                    fixedChannel.setAttribute('data-url', videoUrl);
+
+                    // Adding event listener to the fixed item
+                    $(fixedChannel).on("click", function() {
+                        var player = videojs('my-video');
+                        player.pause();
+                        var new_url = $(this).attr("data-url");
+                        player.src(new_url);
+                        player.load();
+                        player.play();
+                    });
+                }
+            } catch (error) {
+                console.error('Error fetching video source:', error);
+            }
+        }
+
+        updateVideoSource();
+        setInterval(updateVideoSource, 86400000); // Check for updates every 60 seconds
+
+        $(function() {
+            $("#playlist li").on("click", function() {
+                var player = videojs('my-video');
+                player.pause();
+                var new_url = $(this).attr("data-url");
+                player.src(new_url);
+                player.load();
+                player.play();
+            });
+        });
+</script>
+
 <div class="welcome-screen" id="welcomeScreen">
-        <h1>مرحبًا بكم في البث المباشر</h1>
-        <p>نحن سعداء بزيارتكم، استمتعوا بتجربة فريدة.</p>
-    </div>
+  <h1>مرحبًا بكم في البث المباشر</h1>
+  <p>نحن سعداء بزيارتكم، استمتعوا بتجربة فريدة.</p>
+</div>
 
-    <div class="button-container">
-        <button class="circle-button" id="homeButton" style="background-color: #E3651D;">
-            <i class="fas fa-home"></i>
-            <div class="tooltip">الصفحة الرئيسية</div>
-        </button>
-        <button class="circle-button" id="liveButton" style="background-color: #1d242e;">
-            <i class="fas fa-broadcast-tower"></i>
-            <div class="tooltip">البث المباشر</div>
-        </button>
-        <button class="circle-button" id="tvButton" style="background-color: #1d242e;">
-            <i class="fa fa-info-circle"></i>
-            <div class="tooltip">صفحة المعلومات</div>
-        </button>
-        <button class="circle-button" id="colorButton" style="color: #E3651D; background-color: #1d242e;">
-            <i class="fas fa-palette"></i>
-            <div class="tooltip">تغيير الألوان</div>
-        </button>
-    </div>
+<div class="button-container">
+  <button class="circle-button" id="homeButton" style="background-color: #E3651D;">
+    <i class="fas fa-home"></i>
+    <div class="tooltip">الصفحة الرئيسية</div>
+  </button>
+  <button class="circle-button" id="liveButton" style="background-color: #1d242e;">
+    <i class="fas fa-broadcast-tower"></i>
+    <div class="tooltip">البث المباشر</div>
+  </button>
+  <button class="circle-button" id="tvButton" style="background-color: #1d242e;">
+    <i class="fa fa-info-circle"></i>
+    <div class="tooltip">صفحة المعلومات</div>
+  </button>
+  <button class="circle-button" id="colorButton" style="color: #E3651D; background-color: #1d242e;">
+    <i class="fas fa-palette"></i>
+    <div class="tooltip">تغيير الألوان</div>
+  </button>
+</div>
 
+<div id="colorPicker" class="color-picker hidden">
+  <div class="color-option" style="background-color: #bc1644;" data-color="#bc1644"></div>
+  <div class="color-option" style="background-color: #1d242e;" data-color="#1d242e"></div>
+  <div class="color-option" style="background-color: #3D358A;" data-color="#3D358A"></div>
+  <div class="color-option" style="background-color: #ad660f;" data-color="#ad660f"></div>
+  <div class="color-option" style="background-color: #5BE214;" data-color="#5BE214"></div>
+  <div class="color-option" style="background-color: #18DDD2;" data-color="#18DDD2"></div>
+  <div class="color-option" style="background-color: #E83210;" data-color="#E83210"></div>
+  <div class="color-option" style="background-color: #686D76;" data-color="#686D76"></div>
+  <div class="color-option" style="background-color: #81689D;" data-color="#81689D"></div>
+  <div class="color-option" style="background-color: #49243E;" data-color="#49243E"></div>
+  <!-- أضف المزيد من الألوان حسب الحاجة -->
+</div>
 
-    <div id="colorPicker" class="color-picker hidden">
-        <div class="color-option" style="background-color: #bc1644;" data-color="#bc1644"></div>
-        <div class="color-option" style="background-color: #1d242e;" data-color="#1d242e"></div>
-        <div class="color-option" style="background-color: #3D358A;" data-color="#3D358A"></div>
-	<div class="color-option" style="background-color: #ad660f;" data-color="#ad660f"></div>
-	<div class="color-option" style="background-color: #5BE214;" data-color="#5BE214"></div>
-	<div class="color-option" style="background-color: #18DDD2;" data-color="#18DDD2"></div>
-	<div class="color-option" style="background-color: #E83210;" data-color="#E83210"></div>
-	<div class="color-option" style="background-color: #686D76;" data-color="#686D76"></div>
-	<div class="color-option" style="background-color: #81689D;" data-color="#81689D"></div>
-	<div class="color-option" style="background-color: #49243E;" data-color="#49243E"></div>
-        <!-- أضف المزيد من الألوان حسب الحاجة -->
-    </div>
 <style>
 img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:85px; width: 85px;}
 		body{background-color: #d91048;}
@@ -530,6 +523,19 @@ img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:
 
         .button {
             font-size: 16px; /* حجم الخط أكبر قليلاً */
+        }
+        
+        .channel2 li {
+            display:inline-block;padding:0px;
+        }
+        
+        .channel2 img {
+            border-radius: 20px ; 
+            border-color: white; 
+            padding: 2px; 
+            margin:5px;
+            height:85px;
+            width: 85px;
         }
 
         .play-icon {
@@ -810,7 +816,48 @@ img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:
     transition: opacity 0.5s;
 }
 
+.container {
+    display: flex; /* Use flexbox for responsive layout */
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    gap: 20px; /* Add spacing between rows */
+    padding: 20px; /* Add padding around elements */
+}
 
+.row {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-between; /* Distribute space evenly between columns */
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* For larger screens (desktops), make the row horizontal */
+@media (min-width: 768px) {
+    .row {
+        flex-direction: row; /* Arrange columns horizontally */
+    }
+    .col-md-8 {
+        width: 60%; /* Adjust column width as needed */
+    }
+    .col-md-4 {
+        width: 35%; /* Adjust column width as needed */
+    }
+}
+.channel2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px; /* Add spacing below the channels */
+}
+.channel2 li {
+    width: 100px; /* Adjust width of each channel image */
+    height: 100px; /* Adjust height of each channel image */
+}
+.channel2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the container */
+    border-radius: 10px; /* Add rounded corners to the images */
+}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9712428317791754"
      crossorigin="anonymous"></script>
@@ -935,7 +982,6 @@ if(e)
 	e.setAttribute('unselectable',on);
 }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const loader = document.getElementById('loader');
@@ -997,7 +1043,7 @@ if(e)
         });
 
         liveButton.addEventListener('click', () => {
-            window.location.href = 'tv.html';
+            window.location.href = 'https://goody-code.github.io/live/update-tv.html';
         });
 
         tvButton.addEventListener('click', () => {
@@ -1017,7 +1063,8 @@ if(e)
             });
         });
     });
-		</script>
+    
+</script>
 <footer style="background-color: #1d242e; color: #fff; padding: 20px 0;">
     <style>
         .footer-content {
@@ -1061,6 +1108,7 @@ if(e)
     </div>
 </footer>
 </div>
+
 <script>
 // سكريبت لإخفاء اللودر بعد تحميل الصفحة
 window.addEventListener('load', function() {
@@ -1072,4 +1120,6 @@ window.addEventListener('load', function() {
   // إظهار محتوى الصفحة بعد تحميلها
   pageContent.style.display = 'block';
 });
-									      </script>
+	
+</script>
+</html>
