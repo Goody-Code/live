@@ -84,6 +84,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
+      <div class="popup" id="popup">
+        <!-- أضف العناصر هنا -->
+      <div>
       <div style="position: relative; top: 10px; width: 100%;  z-index: 1;"><center>
         <video id="my-video" class="video-js vjs-default-skin vjs-fluid" controls preload="none"
           width="600" height="338" poster="https://i.im.ge/2024/04/27/ZjME4M..png" data-setup="{}">
@@ -101,6 +104,8 @@
         </marquee>
       </div>
     </div>
+    </div>
+   </div>
     
     <div class="col-md-4">
     	
@@ -520,6 +525,16 @@ img{border-radius: 20px ; border-color: white; padding: 2px; margin:5px; height:
             font-size: 14px; /* حجم الخط أصغر قليلاً */
             margin-bottom: 10px;
         }
+
+	.popup {
+            position: fixed;
+            background-color: rgba(255, 255, 255, 0); /* الشفافية 100% */
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            width: 60%
+            
+	}
 
         .button {
             font-size: 16px; /* حجم الخط أكبر قليلاً */
@@ -1122,4 +1137,19 @@ window.addEventListener('load', function() {
 });
 	
 </script>
+ <script>
+        window.addEventListener('scroll', () => {
+            const popup = document.getElementById('popup');
+            const footer = document.getElementById('footer');
+            const footerRect = footer.getBoundingClientRect();
+            const popupHeight = popup.offsetHeight;
+            const windowHeight = window.innerHeight;
+
+            if (footerRect.top < windowHeight) {
+                popup.style.top = `${windowHeight - popupHeight - (windowHeight - footerRect.top)}px`;
+            } else {
+                popup.style.top = '50px'; // الموضع الابتدائي
+            }
+        });
+ </script>
 </html>
