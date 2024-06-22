@@ -269,20 +269,79 @@
             justify-content: center;
             align-items: center;
             position: absolute;
-            z-index: -1;
+            z-index: 1;
             left: 10%;
-            top: 420px;
+            top: 405px;
             width: 300px;
-            height: 90px;
-            background-color: #1d242e;
-            color: #fff;
-            padding: 15px;
+            height: 120px;
+            background: linear-gradient(145deg, #1d242e, #2a3140);
+            padding: 10px;
             border-radius: 10px;
             margin: 5px;
             font-size: 14px;
-            border: 2px solid #007bff;
-	}
-        
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #ff007f, #ff6600, #ff007f);
+            border-image-slice: 1;
+            transition: all 0.3s ease;
+            animation: glowing 1.5s infinite;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .marquee {
+            border: 2px solid #ef6c00;
+            border-radius: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            display: block;
+            position: relative;
+            background: #1d242e;
+            color: #fff;
+        }
+
+        .marquee span {
+            display: inline-block;
+            background: #d91048;
+            padding: 0 10px;
+            color: #fff;
+            float: right;
+            line-height: 30px;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .marquee marquee {
+            display: block;
+            line-height: 30px;
+            margin-right: 10px;
+            color: #fff;
+        }
+
+        .info-button {
+            background: linear-gradient(45deg, #ff007f, #ff6600, #ff007f);
+            background-size: 200% 200%;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
+            animation: glowing 1.5s infinite;
+        }
+
+        @keyframes glowing {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .info-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 127, 0.4);
+        }
         
         
     </style>
@@ -391,7 +450,13 @@ document.getElementById('tvButton').addEventListener('click', function() {
     <button id="fullScreenButton" class="control-button"><i class="fas fa-expand"></i></button>
     </div>
     <div class="info-container">
-            <p>هذا المشغل يحتوي على جميع قنوات بين سبورت الرياضية المشفرة. يمكنك التنقل بين القنوات باستخدام الأزرار أدناه.</p>
+        <div class="marquee">
+            <span>تنويه:</span>
+            <marquee behavior="scroll" direction="right" scrollamount="8">
+                هذا المشغل يحتوي على جميع قنوات بين سبورت الرياضية المشفرة. يمكنك التنقل بين القنوات باستخدام الأزرار أدناه. يتم بث القنوات بدون تقطيع وبدون إعلانات عبر المشغل.
+            </marquee>
+        </div>
+        <a href="https://goody-code.github.io/live/bein.html" class="info-button">مشاهدة الآن بدون تقطيع وبدون إعلانات</a>
     </div>
 <div style="align=center; padding-top: 830px;">
 <footer style="background-color: #1d242e; color: #fff; padding: 20px 0; width: 700px;">
