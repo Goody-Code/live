@@ -537,13 +537,13 @@ img {
         }
 
         /* استثناء الصور داخل عنصر الفيديو */
-        video poster {
+        video img {
             box-shadow: none;
             animation: none;
         }
 
-        img:not(video poster)::before,
-        img:not(video poster)::after {
+        img:not(video img)::before,
+        img:not(video img)::after {
             content: '';
             position: absolute;
             top: -15px;
@@ -555,7 +555,7 @@ img {
             animation: rotate 3s linear infinite;
         }
 
-        img:not(video poster)::after {
+        img:not(video img)::after {
             animation-delay: -1.5s; /* تأخير لتوفير حركة متنوعة */
         }
 
