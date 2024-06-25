@@ -159,14 +159,28 @@
 
         $(function() {
             $("#playlist li").on("click", function() {
-                var player = videojs('my-video');
-                player.pause();
                 var new_url = $(this).attr("data-url");
-                player.src(new_url);
-                player.load();
-                player.play();
+                loadChannel(new_url);
             });
-        }); 
+        });
+
+        function loadChannel(url) {
+            var player = videojs('my-video');
+            player.pause();
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(url);
+                hls.attachMedia(player.tech().el());
+                hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                    player.play();
+                });
+            } else if (player.tech().el().canPlayType('application/vnd.apple.mpegurl')) {
+                player.src(url);
+                player.play();
+            } else {
+                console.error('This browser does not support HLS');
+            }
+        }
 </script>
 	<head>
 <meta charset="UTF-8">
