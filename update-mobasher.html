@@ -77,32 +77,23 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="http://babeltik.com:25500/assets/js/vendor.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <style>
-        #hls-player, #regular-player {
-            width: 600px;
-            height: 338px;
-            display: none;
-        }
-        #regular-player {
-            display: block;
-        }
-    </style>	
+    	
 <head>
 <div id="page-content">
 
 <div style="position: fixed;   top: 10px;  width: 100%; z-index: 1;"><center>
-<video id="regular-player" class="video-js vjs-default-skin vjs-fluid" controls preload="none"
-           poster="https://i.im.ge/2024/04/27/ZjME4M..png" data-setup="{}">
-        <source src="https://github.com/Goody-Code/live/raw/main/%E2%80%AAMovie-mobasher.mp4" type='application/x-mpegURL'>
-        <p class="vjs-no-js">
+<video id="my-video" class="video-js vjs-default-skin vjs-fluid" controls preload="none"
+          width="600" height="338" poster="https://i.im.ge/2024/04/27/ZjME4M..png" data-setup="{}">
+          <source src="https://github.com/Goody-Code/live/raw/main/%E2%80%AAMovie-mobasher.mp4" type='application/x-mpegURL'>
+          <p class="vjs-no-js">
             تصميم المهندس خالد الغيلي
-            <li data-url="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-        </p>
-    </video>
+            <li  data-url=="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+          </p>
+        </video>
 
     <!-- مشغل HLS -->
     <video id="hls-player" class="video-js vjs-default-skin vjs-fluid" controls preload="none"
-           poster="https://i.im.ge/2024/04/27/ZjME4M..png" data-setup="{}">
+          width="600" height="338" poster="https://i.im.ge/2024/04/27/ZjME4M..png" data-setup="{}">
         <p class="vjs-no-js">
             تصميم المهندس خالد الغيلي
             <li data-url="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
