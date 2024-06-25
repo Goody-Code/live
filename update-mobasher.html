@@ -127,66 +127,7 @@
     <ul id="playlist">
 
 <script>
-        // وظيفة تشغيل القنوات العادية
-        function loadRegularChannel(url) {
-            var regularPlayer = videojs('regular-player');
-            var hlsPlayer = videojs('hls-player');
-
-            // إيقاف كلا المشغلين
-            regularPlayer.pause();
-            hlsPlayer.pause();
-
-            // إخفاء مشغل HLS وإظهار المشغل العادي
-            $('#hls-player').hide();
-            $('#regular-player').show();
-
-            // تحديث مصدر الفيديو للمشغل العادي
-            regularPlayer.src({src: url, type: 'video/mp4'});
-            regularPlayer.load();
-            regularPlayer.play();
-        }
-
-        // وظيفة تشغيل قنوات HLS
-        function loadChannel(url) {
-            var hlsPlayer = document.getElementById('hls-player');
-            var regularPlayer = document.getElementById('regular-player');
-
-            // إيقاف كلا المشغلين
-            regularPlayer.pause();
-            hlsPlayer.pause();
-
-            // إخفاء المشغل العادي وإظهار مشغل HLS
-            $('#regular-player').hide();
-            $('#hls-player').show();
-
-            // استخدام HLS.js لتشغيل الفيديو
-            if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource(url);
-                hls.attachMedia(hlsPlayer);
-                hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                    hlsPlayer.play();
-                });
-            } else if (hlsPlayer.canPlayType('application/vnd.apple.mpegurl')) {
-                hlsPlayer.src = url;
-                hlsPlayer.play();
-            } else {
-                console.error('This browser does not support HLS');
-            }
-        }
-
-        // إضافة مستمعي الأحداث للقنوات في قائمة التشغيل
-        $(function() {
-            $("#playlist li").each(function() {
-                if ($(this).attr("data-url")) {
-                    $(this).on("click", function() {
-                        loadRegularChannel($(this).attr("data-url"));
-                    });
-                }
-            });
-        });
-
-        // تحديث مصدر الفيديو الثابت
+<script>
         async function updateVideoSource() {
             try {
                 const response = await fetch('https://corsproxy.io/?https://www.masirahtv.net/live.php');
@@ -198,9 +139,14 @@
                     const fixedChannel = document.getElementById('fixed-channel');
                     fixedChannel.setAttribute('data-url', videoUrl);
 
-                    // إضافة مستمع الحدث للعنصر الثابت
+                    // Adding event listener to the fixed item
                     $(fixedChannel).on("click", function() {
-                        loadRegularChannel($(this).attr("data-url"));
+                        var player = videojs('my-video');
+                        player.pause();
+                        var new_url = $(this).attr("data-url");
+                        player.src(new_url);
+                        player.load();
+                        player.play();
                     });
                 }
             } catch (error) {
@@ -209,8 +155,19 @@
         }
 
         updateVideoSource();
-        setInterval(updateVideoSource, 86400000); // التحقق من التحديثات كل 24 ساعة (86400000 مللي ثانية)
-    </script>
+        setInterval(updateVideoSource, 86400000); // Check for updates every 60 seconds
+
+        $(function() {
+            $("#playlist li").on("click", function() {
+                var player = videojs('my-video');
+                player.pause();
+                var new_url = $(this).attr("data-url");
+                player.src(new_url);
+                player.load();
+                player.play();
+            });
+        }); 
+</script>
 	<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
