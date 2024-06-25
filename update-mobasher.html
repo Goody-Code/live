@@ -118,35 +118,6 @@
     <ul id="playlist">
 
 <script>
-<script>
-        async function updateVideoSource() {
-            try {
-                const response = await fetch('https://corsproxy.io/?https://www.masirahtv.net/live.php');
-                const text = await response.text();
-                const videoUrlMatch = text.match(/myPlayer\.src\("([^"]+)"\)/);
-
-                if (videoUrlMatch) {
-                    const videoUrl = videoUrlMatch[1];
-                    const fixedChannel = document.getElementById('fixed-channel');
-                    fixedChannel.setAttribute('data-url', videoUrl);
-
-                    // Adding event listener to the fixed item
-                    $(fixedChannel).on("click", function() {
-                        var player = videojs('my-video');
-                        player.pause();
-                        var new_url = $(this).attr("data-url");
-                        player.src(new_url);
-                        player.load();
-                        player.play();
-                    });
-                }
-            } catch (error) {
-                console.error('Error fetching video source:', error);
-            }
-        }
-
-        updateVideoSource();
-        setInterval(updateVideoSource, 86400000); // Check for updates every 60 seconds
 
         $(function() {
             $("#playlist li").on("click", function() {
