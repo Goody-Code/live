@@ -125,7 +125,66 @@
     <ul id="playlist">
 
 <script>
-        // وظيفة تحديث مصدر الفيديو
+        // وظيفة تشغيل القنوات العادية
+        function loadRegularChannel(url) {
+            var regularPlayer = videojs('regular-player');
+            var hlsPlayer = videojs('hls-player');
+
+            // إيقاف كلا المشغلين
+            regularPlayer.pause();
+            hlsPlayer.pause();
+
+            // إخفاء مشغل HLS وإظهار المشغل العادي
+            $('#hls-player').hide();
+            $('#regular-player').show();
+
+            // تحديث مصدر الفيديو للمشغل العادي
+            regularPlayer.src({src: url, type: 'video/mp4'});
+            regularPlayer.load();
+            regularPlayer.play();
+        }
+
+        // وظيفة تشغيل قنوات HLS
+        function loadChannel(url) {
+            var hlsPlayer = document.getElementById('hls-player');
+            var regularPlayer = document.getElementById('regular-player');
+
+            // إيقاف كلا المشغلين
+            regularPlayer.pause();
+            hlsPlayer.pause();
+
+            // إخفاء المشغل العادي وإظهار مشغل HLS
+            $('#regular-player').hide();
+            $('#hls-player').show();
+
+            // استخدام HLS.js لتشغيل الفيديو
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(url);
+                hls.attachMedia(hlsPlayer);
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    hlsPlayer.play();
+                });
+            } else if (hlsPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                hlsPlayer.src = url;
+                hlsPlayer.play();
+            } else {
+                console.error('This browser does not support HLS');
+            }
+        }
+
+        // إضافة مستمعي الأحداث للقنوات في قائمة التشغيل
+        $(function() {
+            $("#playlist li").each(function() {
+                if ($(this).attr("data-url")) {
+                    $(this).on("click", function() {
+                        loadRegularChannel($(this).attr("data-url"));
+                    });
+                }
+            });
+        });
+
+        // تحديث مصدر الفيديو الثابت
         async function updateVideoSource() {
             try {
                 const response = await fetch('https://corsproxy.io/?https://www.masirahtv.net/live.php');
@@ -149,65 +208,6 @@
 
         updateVideoSource();
         setInterval(updateVideoSource, 86400000); // التحقق من التحديثات كل 24 ساعة (86400000 مللي ثانية)
-
-        // وظيفة تشغيل القنوات العادية
-        function loadRegularChannel(url) {
-            var regularPlayer = videojs('regular-player');
-            var hlsPlayer = videojs('hls-player');
-
-            // إيقاف كلا المشغلين
-            regularPlayer.pause();
-            hlsPlayer.pause();
-
-            // إخفاء مشغل HLS وإظهار المشغل العادي
-            $('#hls-player').hide();
-            $('#regular-player').show();
-
-            // تحديث مصدر الفيديو للمشغل العادي
-            regularPlayer.src({src: url});
-            regularPlayer.load();
-            regularPlayer.play();
-        }
-
-        // وظيفة تشغيل قنوات HLS
-        function loadChannel(url) {
-            var regularPlayer = videojs('regular-player');
-            var hlsPlayer = videojs('hls-player');
-
-            // إيقاف كلا المشغلين
-            regularPlayer.pause();
-            hlsPlayer.pause();
-
-            // إخفاء المشغل العادي وإظهار مشغل HLS
-            $('#regular-player').hide();
-            $('#hls-player').show();
-
-            // استخدام HLS.js لتشغيل الفيديو
-            if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource(url);
-                hls.attachMedia(hlsPlayer.tech().el());
-                hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                    hlsPlayer.play();
-                });
-            } else if (hlsPlayer.tech().el().canPlayType('application/vnd.apple.mpegurl')) {
-                hlsPlayer.src({src: url, type: 'application/x-mpegURL'});
-                hlsPlayer.play();
-            } else {
-                console.error('This browser does not support HLS');
-            }
-        }
-
-        // إضافة مستمعي الأحداث للقنوات في قائمة التشغيل
-        $(function() {
-            $("#playlist li").each(function() {
-                if ($(this).attr("data-url")) {
-                    $(this).on("click", function() {
-                        loadRegularChannel($(this).attr("data-url"));
-                    });
-                }
-            });
-        });
     </script>
 	<head>
 <meta charset="UTF-8">
