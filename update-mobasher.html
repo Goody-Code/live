@@ -75,19 +75,37 @@
     <script src="https://unpkg.com/video.js/dist/video.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-hls@latest/dist/videojs-contrib-hls.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	
+    <style>
+        #hls-player, #regular-player {
+            width: 600px;
+            height: 338px;
+            display: none;
+        }
+        #regular-player {
+            display: block;
+        }
+    </style>	
 <head>
 <div id="page-content">
 
 <div style="position: fixed;   top: 10px; width: 100%;  z-index: 1;"><center>
-<video id="my-video" class="video-js vjs-default-skin vjs-fluid" controls preload="none"
-          width="600" height="338" poster="https://i.im.ge/2024/04/27/ZjME4M..png" data-setup="{}">
+<video id="regular-player" class="video-js vjs-default-skin vjs-fluid" controls preload="none"
+           poster="https://i.im.ge/2024/04/27/ZjME4M..png" data-setup="{}">
         <source src="https://github.com/Goody-Code/live/raw/main/%E2%80%AAMovie-mobasher.mp4" type='application/x-mpegURL'>
         <p class="vjs-no-js">
             تصميم المهندس خالد الغيلي
             <li data-url="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
         </p>
-</video>
+    </video>
+
+    <!-- مشغل HLS -->
+    <video id="hls-player" class="video-js vjs-default-skin vjs-fluid" controls preload="none"
+           poster="https://i.im.ge/2024/04/27/ZjME4M..png" data-setup="{}">
+        <p class="vjs-no-js">
+            تصميم المهندس خالد الغيلي
+            <li data-url="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+    </video>
  </div>
  <style>
  	.video-js .vjs-poster img {
@@ -121,12 +139,7 @@
 
                     // إضافة مستمع الحدث للعنصر الثابت
                     $(fixedChannel).on("click", function() {
-                        var player = videojs('my-video');
-                        player.pause();
-                        var new_url = $(this).attr("data-url");
-                        player.src({src: new_url, type: 'application/x-mpegURL'});
-                        player.load();
-                        player.play();
+                        loadRegularChannel($(this).attr("data-url"));
                     });
                 }
             } catch (error) {
@@ -137,46 +150,64 @@
         updateVideoSource();
         setInterval(updateVideoSource, 86400000); // التحقق من التحديثات كل 24 ساعة (86400000 مللي ثانية)
 
-        // وظيفة تشغيل الفيديوهات بناءً على نوعها
-        $(function() {
-            $("#playlist li").each(function() {
-                if ($(this).attr("data-url")) {
-                    $(this).on("click", function() {
-                        var player = videojs('my-video');
-                        player.pause();
-                        var new_url = $(this).attr("data-url");
+        // وظيفة تشغيل القنوات العادية
+        function loadRegularChannel(url) {
+            var regularPlayer = videojs('regular-player');
+            var hlsPlayer = videojs('hls-player');
 
-                        if (new_url.endsWith('.m3u8')) {
-                            player.src({src: new_url, type: 'application/x-mpegURL'});
-                        } else {
-                            player.src(new_url);
-                        }
+            // إيقاف كلا المشغلين
+            regularPlayer.pause();
+            hlsPlayer.pause();
 
-                        player.load();
-                        player.play();
-                    });
-                }
-            });
-        });
+            // إخفاء مشغل HLS وإظهار المشغل العادي
+            $('#hls-player').hide();
+            $('#regular-player').show();
 
-        // وظيفة تحميل وتشغيل القنوات باستخدام HLS.js
+            // تحديث مصدر الفيديو للمشغل العادي
+            regularPlayer.src({src: url});
+            regularPlayer.load();
+            regularPlayer.play();
+        }
+
+        // وظيفة تشغيل قنوات HLS
         function loadChannel(url) {
-            var player = videojs('my-video');
-            player.pause();
+            var regularPlayer = videojs('regular-player');
+            var hlsPlayer = videojs('hls-player');
+
+            // إيقاف كلا المشغلين
+            regularPlayer.pause();
+            hlsPlayer.pause();
+
+            // إخفاء المشغل العادي وإظهار مشغل HLS
+            $('#regular-player').hide();
+            $('#hls-player').show();
+
+            // استخدام HLS.js لتشغيل الفيديو
             if (Hls.isSupported()) {
                 var hls = new Hls();
                 hls.loadSource(url);
-                hls.attachMedia(player.tech().el());
+                hls.attachMedia(hlsPlayer.tech().el());
                 hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                    player.play();
+                    hlsPlayer.play();
                 });
-            } else if (player.tech().el().canPlayType('application/vnd.apple.mpegurl')) {
-                player.src(url);
-                player.play();
+            } else if (hlsPlayer.tech().el().canPlayType('application/vnd.apple.mpegurl')) {
+                hlsPlayer.src({src: url, type: 'application/x-mpegURL'});
+                hlsPlayer.play();
             } else {
                 console.error('This browser does not support HLS');
             }
         }
+
+        // إضافة مستمعي الأحداث للقنوات في قائمة التشغيل
+        $(function() {
+            $("#playlist li").each(function() {
+                if ($(this).attr("data-url")) {
+                    $(this).on("click", function() {
+                        loadRegularChannel($(this).attr("data-url"));
+                    });
+                }
+            });
+        });
     </script>
 	<head>
 <meta charset="UTF-8">
