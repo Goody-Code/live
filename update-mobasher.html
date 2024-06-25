@@ -1234,4 +1234,20 @@ window.addEventListener('load', function() {
   pageContent.style.display = 'block';
 });
 	</script>
-	 
+	 <script>
+        // Prevent automatic refresh by storing a flag in localStorage
+        window.onload = function() {
+            if (localStorage.getItem('manual_refresh') === 'true') {
+                localStorage.removeItem('manual_refresh');
+            } else {
+                alert('Automatic refresh is prevented. Please refresh manually if needed.');
+                // Replace the URL with the same one to stop the auto-refresh loop
+                window.history.replaceState(null, null, window.location.href);
+            }
+        };
+
+        // Detect manual refresh and set the flag
+        window.addEventListener('beforeunload', function(event) {
+            localStorage.setItem('manual_refresh', 'true');
+        });
+	 </script>
