@@ -525,8 +525,7 @@ li{ display:inline-block;padding:0px;}
         <!-- أضف المزيد من الألوان حسب الحاجة -->
     </div>
 <style>
-        /* تطبيق تأثير شعلة النار على الصور فقط وليس داخل الفيديو */
-        img:not(.video-js) {
+        img {
             position: relative;
             border-radius: 20px;
             border: 2px solid #d91048;
@@ -538,8 +537,8 @@ li{ display:inline-block;padding:0px;}
             box-shadow: 0 0 0 2px #fff;
         }
 
-        img:not(.video-js)::before,
-        img:not(.video-js)::after {
+        img::before,
+        img::after {
             content: '';
             position: absolute;
             top: -15px;
@@ -551,7 +550,7 @@ li{ display:inline-block;padding:0px;}
             animation: rotate 3s linear infinite;
         }
 
-        img:not(.video-js)::after {
+        img::after {
             animation-delay: -1.5s; /* تأخير لتوفير حركة متنوعة */
         }
 
@@ -564,14 +563,13 @@ li{ display:inline-block;padding:0px;}
             }
         }
 
-        /* إخفاء أي تأثيرات أو إطارات داخل الفيديو */
-        .video-js img {
+        /* إلغاء أي تأثيرات على الصور داخل الفيديو */
+        video img {
             border: none !important;
             box-shadow: none !important;
             animation: none !important;
         }
-	
-	body{background-color: #333;}
+        body{background-color: #333;}
         </style>
 <style>
   body {
