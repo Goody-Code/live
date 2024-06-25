@@ -158,7 +158,26 @@
                 }
             });
         });
-</script>
+
+        // وظيفة تحميل وتشغيل القنوات باستخدام HLS.js
+        function loadChannel(url) {
+            var player = videojs('my-video');
+            player.pause();
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(url);
+                hls.attachMedia(player.tech().el());
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    player.play();
+                });
+            } else if (player.tech().el().canPlayType('application/vnd.apple.mpegurl')) {
+                player.src(url);
+                player.play();
+            } else {
+                console.error('This browser does not support HLS');
+            }
+        }
+    </script>
 	<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
