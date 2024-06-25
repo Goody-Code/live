@@ -152,9 +152,17 @@
 	</script>
 <script>
         $(function() {
-            $("#playlist li").on("click", function() {
-                var new_url = $(this).attr("data-url");
-                loadChannel(new_url);
+            $("#playlist li").each(function() {
+                if ($(this).attr("data-url")) {
+                    $(this).on("click", function() {
+                        var player = videojs('my-video');
+                        player.pause();
+                        var new_url = $(this).attr("data-url");
+                        player.src(new_url);
+                        player.load();
+                        player.play();
+                    });
+                }
             });
         });
 
@@ -165,7 +173,7 @@
                 var hls = new Hls();
                 hls.loadSource(url);
                 hls.attachMedia(player.tech().el());
-                hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
                     player.play();
                 });
             } else if (player.tech().el().canPlayType('application/vnd.apple.mpegurl')) {
@@ -175,7 +183,7 @@
                 console.error('This browser does not support HLS');
             }
         }
- </script>
+    </script>
 	<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -207,7 +215,7 @@ li{ display:inline-block;padding:0px;}
 
 
 <div class="channel2">
-<li data-url="http://babeltik.com:25461/live/babel/babel/56.m3u8"><img src="https://rashednet1.files.wordpress.com/2023/01/picsart_23-01-27_15-59-24-011.jpg"  border="3px"></li>
+<li onclick="loadChannel('http://babeltik.com:25461/live/babel/babel/56.m3u8')"><img src="http://babeltik.com/cl/beIN_SPORTS1_DIGITAL_Mono.png"  border="3px"></li>
 <a href="http://babeltik.com:25500/player.php?type=live&id=55"><img src="http://babeltik.com/cl/beIN_SPORTS1_DIGITAL_Mono.png"  border="3px"></a>
 <a href="http://babeltik.com:25500/player.php?type=live&id=47"><img src="http://babeltik.com/cl/beIN_SPORTS2_PREMIUM_Digital_Mono.png"  border="3px"></a>
 <a href="http://babeltik.com:25500/player.php?type=live&id=46"><img src="http://babeltik.com/cl/beIN_SPORTS2_PREMIUM_Digital_Mono.png"  border="3px"></a>
