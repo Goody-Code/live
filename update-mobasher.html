@@ -69,10 +69,11 @@
 
   -->
 
-  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet"></link>
+  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
   <script src="https://unpkg.com/video.js/dist/video.js"></script>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>  
+	
 <head>
 <div id="page-content">
 
@@ -134,17 +135,35 @@
         updateVideoSource();
         setInterval(updateVideoSource, 86400000); // Check for updates every 60 seconds
 
-        $(function() {
-            $("#playlist li").on("click", function() {
-                var player = videojs('my-video');
-                player.pause();
-                var new_url = $(this).attr("data-url");
-                player.src(new_url);
-                player.load();
-                player.play();
             });
         });
 </script>
+<script>
+        $(function() {
+            $("#playlist li").on("click", function() {
+                var new_url = $(this).attr("data-url");
+                loadChannel(new_url);
+            });
+        });
+
+        function loadChannel(url) {
+            var player = videojs('my-video');
+            player.pause();
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(url);
+                hls.attachMedia(player.tech().el());
+                hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                    player.play();
+                });
+            } else if (player.tech().el().canPlayType('application/vnd.apple.mpegurl')) {
+                player.src(url);
+                player.play();
+            } else {
+                console.error('This browser does not support HLS');
+            }
+        }
+ </script>
 	<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -176,7 +195,7 @@ li{ display:inline-block;padding:0px;}
 
 
 <div class="channel2">
-<a href="http://babeltik.com:25500/player.php?type=live&id=56"><img src="http://babeltik.com/cl/beIN_SPORTS1_DIGITAL_Mono.png"  border="3px"></a>
+<li data-url="http://babeltik.com:25461/live/babel/babel/56.m3u8"><img src="http://babeltik.com/cl/beIN_SPORTS1_DIGITAL_Mono.png"  border="3px"></li>
 <a href="http://babeltik.com:25500/player.php?type=live&id=55"><img src="http://babeltik.com/cl/beIN_SPORTS1_DIGITAL_Mono.png"  border="3px"></a>
 <a href="http://babeltik.com:25500/player.php?type=live&id=47"><img src="http://babeltik.com/cl/beIN_SPORTS2_PREMIUM_Digital_Mono.png"  border="3px"></a>
 <a href="http://babeltik.com:25500/player.php?type=live&id=46"><img src="http://babeltik.com/cl/beIN_SPORTS2_PREMIUM_Digital_Mono.png"  border="3px"></a>
