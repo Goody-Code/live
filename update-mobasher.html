@@ -87,6 +87,53 @@
     </p>
   </video>
  </div>
+<style>
+        /* تطبيق تأثير شعلة النار على الصور فقط وليس داخل الفيديو */
+        img:not(.video-js) {
+            position: relative;
+            border-radius: 20px;
+            border: 2px solid #d91048;
+            padding: 2px;
+            margin: 5px;
+            height: 85px;
+            width: 85px;
+            background-color: #fff;
+            box-shadow: 0 0 0 2px #fff;
+        }
+
+        img:not(.video-js)::before,
+        img:not(.video-js)::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border-radius: 50%;
+            box-shadow: 0 0 20px 10px rgba(255, 69, 0, 0.6), 0 0 30px 15px rgba(255, 165, 0, 0.4), 0 0 40px 20px rgba(255, 255, 0, 0.2);
+            animation: rotate 3s linear infinite;
+        }
+
+        img:not(.video-js)::after {
+            animation-delay: -1.5s; /* تأخير لتوفير حركة متنوعة */
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* إخفاء أي تأثيرات أو إطارات داخل الفيديو */
+        .video-js img {
+            border: none !important;
+            box-shadow: none !important;
+            animation: none !important;
+        }
+</style>
 </body>
 </html>
     <ul id="playlist">
