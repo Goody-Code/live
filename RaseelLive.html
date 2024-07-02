@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسيل لايف - Rasel Live</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #1c1c1c;
+            color: #fff;
+        }
+        header {
+            background: #2b2b2b;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #e50914;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .movies-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .movie-card {
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        .movie-card:hover {
+            transform: translateY(-10px);
+        }
+        .movie-card video {
+            width: 100%;
+            border-bottom: 2px solid #e50914;
+        }
+        .movie-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .movie-info h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #e50914;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>رسيل لايف - Rasel Live</h1>
+    </header>
+    <div class="container">
+        <div class="movies-grid">
+            <div class="movie-card">
+                <video controls>
+                    <source src="https://vip-muayad-88-a.vidblue.pics/hls/vxzxgqxirgqfycihmrk7zqn2baziicyb6f25fzdfkjbpaflp2gagax776tia/index-v1-a1.m3u8" type="application/x-mpegURL">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="movie-info">
+                    <h3>فيلم 1</h3>
+                </div>
+            </div>
+            <div class="movie-card">
+                <video controls>
+                    <source src="https://vip-muayad-88-a.vidblue.pics/hls/vxzxhpsvrgqfycihmrnpzvffjmstxbpsd5i4prpfm577nad4fnqyh6c4leba/index-v1-a1.m3u8" type="application/x-mpegURL">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="movie-info">
+                    <h3>فيلم 2</h3>
+                </div>
+            </div>
+            <div class="movie-card">
+                <video controls>
+                    <source src="https://vip-muayad-88-a.vidblue.pics/hls/vxzxg6ulrgqfycihmrlpzbpbchtril7oqgvrq353akvrqmi4wmskllnhmbia/index-v1-a1.m3u8" type="application/x-mpegURL">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="movie-info">
+                    <h3>فيلم 3</h3>
+                </div>
+            </div>
+            <div class="movie-card">
+                <video controls>
+                    <source src="https://ans-a.segavid.cfd/hls/vxzxhhs5rgqfycihmrnpzchdcdmpblrziu6q6m2kilcmtgqnf252ivo6b2tq/index-v1-a1.m3u8" type="application/x-mpegURL">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="movie-info">
+                    <h3>فيلم 4</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
