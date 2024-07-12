@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#141a24">
+<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
+<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
+<meta property="og:title" content="البث المباشر - تصميم المهندس خالد الغيلي">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
+<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="300">
+<meta property="og:image:alt" content="البث المباشر - تصميم المهندس خالد الغيلي">
+<meta property="og:description" content="جميع القنوات الفضائية HD">
+<link rel="shortcut icon" type="image/x-icon" href="https://i.im.ge/2024/04/18/Z12uML.live-removebg-preview.png"">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <title>عرض جزء محدد من موقع</title>
+    <style>
+        @font-face {
+            font-family: 'Frutiger';
+            src: url('path-to-frutiger-font.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #141a24;
+            font-family: "Cairo", sans-serif;
+            position: relative;
+        }
+        .iframe-container1 {
+            width: 100%;
+            max-width: 800px;
+            height: 40vh;
+            position: absolute;
+            top: 0%;
+            z-index: 10;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        .iframe-container2 {
+            margin-top: 10%;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .popup {
+            position: fixed;
+            margin-top: 8px;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95%;
+            height:20px;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #141a24;
+            color: #bfc3d4;
+            text-align: center;
+            justify-content: center;
+           align-items: center;
+            font-size: 1em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 20;
+        }
+        
+        .popup .highlight {
+            color: #39DBBF;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="iframe-container1">
+        <iframe id="contentFrame1" src="https://kkk.alkoora.live/albaplayer/on-time-sport-1" title="عرض جزء محدد 1"></iframe>
+    </div>
+
+    <div class="iframe-container2">
+        <iframe id="contentFrame2" src="https://ysscores.com/ar/index" title="عرض جزء محدد 2"></iframe>
+    </div>
+
+    <div class="popup">
+        <span class="highlight">المباريات</span> سوف تظهر في المشغل وقت المباراة
+    </div>
+
+    <script>
+        function hideElements() {
+            const iframe1 = document.getElementById('contentFrame1');
+            const iframe2 = document.getElementById('contentFrame2');
+
+            const hideUnwantedElements = function(iframe) {
+                iframe.onload = function() {
+                    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                    const unwantedSelectors = [
+                        'header',
+                        'footer',
+                        '.some-class',
+                        '#some-id'
+                    ];
+
+                    unwantedSelectors.forEach(selector => {
+                        const elements = iframeDocument.querySelectorAll(selector);
+                        elements.forEach(element => element.style.display = 'none');
+                    });
+
+                    if (iframe === iframe2) {
+                        const targetElement = iframeDocument.querySelector('.championship-wrap.important-matches');
+                        if (targetElement) {
+                            targetElement.style.margin = '0 auto';
+                            targetElement.style.maxWidth = '100%';
+                        }
+                    }
+                    
+                    if (iframe === iframe1) {
+                        const tmeElement = iframeDocument.getElementById('tme');
+                        if (tmeElement) {
+                            tmeElement.style.display = 'none';
+                        }
+                    }
+                };
+            };
+
+            hideUnwantedElements(iframe1);
+            hideUnwantedElements(iframe2);
+        }
+
+        function observeIframeContent() {
+            const iframe1 = document.getElementById('contentFrame1');
+
+            iframe1.onload = function() {
+                const iframeDocument = iframe1.contentDocument || iframe1.contentWindow.document;
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        const tmeElement = iframeDocument.getElementById('tme');
+                        if (tmeElement) {
+                            tmeElement.style.display = 'none';
+                        }
+                    });
+                });
+
+                observer.observe(iframeDocument.body, { childList: true, subtree: true });
+            };
+        }
+
+        hideElements();
+        observeIframeContent();
+    </script>
+</body>
+</html>
