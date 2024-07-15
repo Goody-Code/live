@@ -4,29 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#141a24">
-<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
-<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
-<meta property="og:title" content="البث المباشر - تصميم المهندس خالد الغيلي">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
-<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="400">
-<meta property="og:image:height" content="300">
-<meta property="og:image:alt" content="البث المباشر - تصميم المهندس خالد الغيلي">
-<meta property="og:description" content="جميع القنوات الفضائية HD">
-<link rel="shortcut icon" type="image/x-icon" href="https://i.im.ge/2024/04/18/Z12uML.live-removebg-preview.png"">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
+    <meta property="og:title" content="البث المباشر - تصميم المهندس خالد الغيلي">
+    <meta property="og:type" content="website">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:alt" content="البث المباشر - تصميم المهندس خالد الغيلي">
+    <meta property="og:description" content="جميع القنوات الفضائية HD">
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.im.ge/2024/04/18/Z12uML.live-removebg-preview.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>البث + المباريات + الجدول</title>
     <style>
-        @font-face {
-            font-family: 'Frutiger';
-            src: url('path-to-frutiger-font.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
         body {
             margin: 0;
             padding: 0;
@@ -39,55 +30,97 @@
             font-family: "Cairo", sans-serif;
             position: relative;
         }
-        .iframe-container1 {
+
+        .iframe-container1,
+        .iframe-container2 {
             width: 100%;
             max-width: 800px;
             height: 40vh;
             position: absolute;
-            top: 0%;
-            z-index: 10;
             overflow: hidden;
+            background-color: #141a24;
+            color: #bfc3d4;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: white;
+            display: block;
         }
+
+        .iframe-container1 {
+            top: 0%;
+            z-index: 10;
+        }
+
         .iframe-container2 {
-            margin-top: 10%;
-            left: 0;
-            width: 100%;
+            margin-top: 23%;
+            
             height: 100vh;
-            overflow: hidden;
+            z-index: 9;
         }
+
         iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
+
         .popup {
             position: fixed;
-            margin-top: 8px;
-            top: 40%;
+            top: 42%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 95%;
-            height:20px;
             max-width: 600px;
             padding: 20px;
             background-color: #141a24;
             color: #bfc3d4;
             text-align: center;
-            justify-content: center;
-           align-items: center;
             font-size: 1em;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             z-index: 20;
         }
-        
+
         .popup .highlight {
             color: #39DBBF;
         }
+
+        .button {
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #bfc3d4;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #141a24;
+            font-size: 24px;
+        }
+
+        .button.fullscreen {
+            right: 20px;
+            top: 37%;
+            transform: translateY(-50%);
+            z-index: 20;
+        }
+
+        .button.back {
+            left: 20px;
+            top: 37%;
+            transform: translateY(-50%);
+            z-index: 20;
+        }
         
+        @media (max-width: 768px) {
+            .button {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -101,6 +134,14 @@
 
     <div class="popup">
         <span class="highlight">المباريات</span> سوف تظهر في المشغل وقت المباراة
+    </div>
+
+    <div class="button fullscreen" onclick="window.location.href='https://kk.alkoora.live/albaplayer/on-time-sport-1/'">
+        <i class="fas fa-expand"></i>
+    </div>
+
+    <div class="button back" onclick="window.location.href='https://goody-code.github.io/live/update-mobasher.html'">
+        <i class="fas fa-undo-alt"></i>
     </div>
 
     <script>
@@ -164,6 +205,38 @@
 
         hideElements();
         observeIframeContent();
+    </script>
+    <script>
+    	window.onload = function() {
+    function adjustMarginTop() {
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const iframeContainer2 = document.querySelector('.iframe-container2');
+
+        if (!isMobile) {
+            iframeContainer2.style.marginTop = '80%';
+        } else {
+            iframeContainer2.style.marginTop = ''; // إعادة تعيين القيمة الافتراضية في الهاتف
+        }
+    }
+
+    adjustMarginTop();
+    window.addEventListener('resize', adjustMarginTop);
+};
+    </script>
+    <script>
+    	document.documentElement.style.backgroundColor = "#bfc3d4";
+document.documentElement.style.height = "100%";
+document.documentElement.style.overflow = "hidden";
+document.body.style.height = "100%";
+document.body.style.overflow = "hidden";
+
+window.addEventListener('load', function() {
+    document.documentElement.style.backgroundColor = "";
+    document.documentElement.style.height = "";
+    document.documentElement.style.overflow = "";
+    document.body.style.height = "";
+    document.body.style.overflow = "";
+});
     </script>
 </body>
 </html>
