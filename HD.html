@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#bc1644">
+<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
+<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
+<meta property="og:title" content="البث المباشر - تصميم المهندس خالد الغيلي">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
+<meta property="og:image" content="https://i.postimg.cc/tJhmNwKT/gogd.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="300">
+<meta property="og:image:alt" content="البث المباشر - تصميم المهندس خالد الغيلي">
+<meta property="og:description" content="جميع القنوات الفضائية HD">
+<link href="fonts/notofont.css" rel="stylesheet">
+<link rel="stylesheet" href="css/fontello.css">
+<link rel="shortcut icon" type="image/x-icon" href="https://i.im.ge/2024/04/18/Z12uML.live-removebg-preview.png"">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+ 
+</head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Cairo", sans-serif;
+            background: linear-gradient(135deg, #bc1644, #333);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        iframe {
+            border: 3px solid #ee8100;
+            width: 100%;
+            height: 70%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 500px;
+        }
+        .buttons button {
+            background-color: #ee8100;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            flex-grow: 1;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+        .buttons button:hover {
+            background-color: #d97000;
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            z-index: 1000;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .popup button {
+            background-color: #ee8100;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            iframe {
+                height: 60%;
+            }
+            .buttons {
+                flex-direction: column;
+                width: 90%;
+            }
+            .buttons button {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <iframe id="stream-frame" allowfullscreen frameborder="0" scrolling="no" src="https://www.dlhd.online/tv/albaplayer/stream-91/"></iframe>
+        <div class="buttons">
+        	<button id="next-channel">القناة التالية</button>
+            <button id="prev-channel">القناة السابقة</button>
+        </div>
+    </div>
+    <div class="popup" id="welcome-popup">
+        <p>مرحبًا! يمكنك التنقل بين القنوات بالضغط على الأزرار.</p>
+        <button onclick="closePopup()">حسنًا</button>
+    </div>
+    <script>
+        let currentChannel = 91;
+
+        document.getElementById('prev-channel').addEventListener('click', () => {
+            if (currentChannel > 1) {
+                currentChannel--;
+                updateIframe();
+            }
+        });
+
+        document.getElementById('next-channel').addEventListener('click', () => {
+            currentChannel++;
+            updateIframe();
+        });
+
+        function updateIframe() {
+            const iframe = document.getElementById('stream-frame');
+            iframe.src = `https://www.dlhd.online/tv/albaplayer/stream-${currentChannel}/`;
+        }
+
+        function closePopup() {
+            document.getElementById('welcome-popup').style.display = 'none';
+            localStorage.setItem('welcomePopupShown', 'true');
+        }
+
+        window.onload = function() {
+            if (!localStorage.getItem('welcomePopupShown')) {
+                document.getElementById('welcome-popup').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
